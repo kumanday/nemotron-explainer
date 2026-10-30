@@ -273,3 +273,29 @@ scripts/check-delivery.py.
   devpost description) for v3.
 - Publication (repository push, YouTube upload, Devpost submission) awaits the
   user's explicit authorization.
+
+## Session 2026-10-30 (v3 visual fixes)
+
+### Strategy
+Fix user-reported visual defects in the rendered v3 film and re-gate on check-delivery.py.
+
+### Defects fixed
+- **look.html 1:04–1:30**: Removed the `#player` yoyo scale pulse (`repeat:35`) that caused the nauseating "pulsing in and out" effect. Replaced with meaningful crossfades between the six sampled player frames (opacity-based, reliably captured by the render engine), cycling every 2.5s through the scene to prevent static holds.
+- **look.html 1:15**: Removed `f1box`/`f2box` amber bounding boxes and the `q2` quote that "didn't make any sense." Kept only the intentional `q1` quote beside the self-review panel.
+- **loop.html 0:24–0:31**: Removed the green dot `#pulse` that "bounced around without any sense." Replaced with a gentle ring `strokeDashoffset` pulse (CSS property tween, captured in sub-comps) for temporal coverage. Cued via `CUE.loop` (no hand-timed positions).
+- **stack.html 2:03**: Nodes enlarged from 104px/26px to 120px/30px and re-positioned so their centers sit ON the ring circumference (Write top, Render right, Look bottom, Fix left), instead of being offset by half their size and appearing tiny.
+
+### Decisions
+- Opacity crossfades (not `set` on `src`) are used for the look scene frame cycling because GSAP `set` on image `src` is not captured by the HyperFrames sub-composition render engine.
+- All timeline positions use `CUE.name` (+ offset); no hand-timed seconds (cue_sync passes).
+- GSAP `repeat:-1` avoided; finite yoyo/repeat used where needed.
+
+### Reasoning log
+- The previous render's look-scene scale pulse was simultaneously causing the nauseating effect AND providing temporal coverage. Removing it required replacement motion that is both meaningful (shows sampled frames) and reliably captured (opacity tweens).
+- `text_occluded` error on `#playertext` fixed by adding `z-index:10` and bottom positioning so the text sits above the full-bleed frame images.
+
+### Outstanding items
+- scripts/check-delivery.py PASSES all gates on renders/submission-demo-v3.mp4 (SHA 6dd73744...)
+- delivery-evidence.json SHA synced to 6dd73744...
+- Update STATUS.md and submission/ for v3 final.
+- Publication awaits user authorization.

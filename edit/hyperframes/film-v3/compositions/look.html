@@ -5,7 +5,6 @@
     #stagetext span{color:#8d9bb0;}
     #stagetext span.active{color:#c8f560;}
     #player{position:absolute;left:220px;top:150px;width:1280px;height:720px;border:1px solid #243142;background:#0b121c;opacity:0;display:flex;align-items:center;justify-content:center;color:#8d9bb0;font-size:30px;}
-    #playerframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;}
     #filmstrip{position:absolute;left:120px;top:900px;width:1680px;height:150px;display:flex;gap:14px;opacity:0;}
     .fcell{position:relative;width:260px;height:146px;background:#0b121c;border:1px solid #243142;border-radius:10px;overflow:hidden;opacity:0;transform:scale(0.55);}
     .fcell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
@@ -19,17 +18,19 @@
     .sval.blind{color:#c8f560;}
     .sval.self{color:#5a6b7d;}
     .flag{font-size:20px;font-weight:800;color:#ff5a5f;margin-left:8px;}
-    #f1box{position:absolute;border:3px solid #ffb020;opacity:0;pointer-events:none;}
-    #f2box{position:absolute;border:3px solid #ffb020;opacity:0;pointer-events:none;}
     .quote{position:absolute;font-size:28px;font-weight:700;color:#ffb020;max-width:520px;line-height:1.35;opacity:0;}
     #q1{left:220px;top:900px;}
-    #q2{right:160px;top:700px;text-align:right;}
   </style>
   <div id="root" data-composition-id="look" data-width="1920" data-height="1080">
     <div id="stagetext">Stage: <span id="swrite">Write</span> · <span id="srender" class="active">Render</span> · <span id="slook">Look</span> · <span id="sfix">Fix</span></div>
     <div id="player">
-      <img id="playerframe" src="assets/frames/t5.2.png">
-      <div id="playertext">six sampled frames from the agent's own render</div>
+      <img id="pf0" src="assets/frames/t5.2.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;">
+      <img id="pf1" src="assets/frames/t0.5.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;">
+      <img id="pf2" src="assets/frames/t1.5.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;">
+      <img id="pf3" src="assets/frames/t2.6.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;">
+      <img id="pf4" src="assets/frames/t3.4.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;">
+      <img id="pf5" src="assets/frames/t4.2.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;">
+      <div id="playertext" style="position:absolute;left:0;right:0;bottom:12px;color:#8d9bb0;font-size:20px;text-align:center;z-index:10;">six sampled frames from the agent's own render</div>
     </div>
     <div id="filmstrip">
       <div class="fcell" id="fc1"><img src="assets/frames/t0.5.png"></div>
@@ -54,17 +55,13 @@
         <div class="srow" id="pbr5"><div class="sname">Craft</div><div class="sval blind">2</div></div>
       </div>
     </div>
-    <div id="f1box"></div>
-    <div id="f2box"></div>
     <div class="quote" id="q1">Self-review said prompt intent 5/5.</div>
-    <div class="quote" id="q2">Blind review: curve missing, wordmark on headline.</div>
   </div>
   <script>
     /* @cues frame=5 */ const CUE = {"strip": 4.12, "axes": 6.027, "f1": 12.96, "f2": 23.92}; const SCENE_END = 29.1; /* @end-cues */
     const tl=gsap.timeline({paused:true});
     tl.fromTo("#player",{y:24,opacity:0},{y:0,opacity:1,duration:0.6,ease:"expo.out"},CUE.strip);
     tl.to("#playertext",{opacity:0,duration:0.3},CUE.strip+0.5);
-    tl.to("#playerframe",{opacity:1,duration:0.5},CUE.strip+0.6);
     for(let i=1;i<=5;i++){
       tl.fromTo("#fc"+i,{y:100,opacity:0,scale:0.5},{y:0,opacity:1,scale:1,duration:0.5,ease:"power2.out"},CUE.strip+(i-1)*0.09);
     }
@@ -73,12 +70,16 @@
     // self-review panel (muted), then blind review panel (bright)
     tl.to("#pself",{opacity:1,transform:"translatex(0)",duration:0.5},CUE.axes);
     tl.to("#pblind",{opacity:1,transform:"translatex(0)",duration:0.5},CUE.axes+0.9);
-    // CUE.f1 / CUE.f2: amber boxes with ≤12-word quotes
-    tl.to("#f1box",{x:560,y:560,width:500,height:70,opacity:1,duration:0.5,ease:"power2.out"},CUE.f1);
+    // CUE.f1: quote beside the self-review panel
     tl.to("#q1",{opacity:1,duration:0.5},CUE.f1+0.4);
-    tl.to("#f2box",{x:220,y:150,width:1280,height:720,opacity:1,duration:0.5,ease:"power2.out"},CUE.f2);
-    tl.to("#q2",{opacity:1,duration:0.5},CUE.f2+0.4);
-    tl.to("#player",{scale:1.09,duration:0.8,yoyo:true,repeat:35,ease:"power2.inOut"},0);
+    // crossfade the player through the sampled renders — meaningful motion, not a nauseating pulse
+    let ft=CUE.strip+1.5;
+    const order=[0,1,2,3,4,5,0,1,2,3,4,5,0];
+    for(let i=1;i<order.length && ft<CUE.strip+24;i++){
+      tl.to("#pf"+order[i-1],{opacity:0,duration:0.4},ft);
+      tl.to("#pf"+order[i],{opacity:1,duration:0.4},ft+0.4);
+      ft+=2.5;
+    }
     window.__timelines["look"]=tl;
   </script>
 </template>

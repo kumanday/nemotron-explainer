@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "artifact_sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5",
+  "artifact_sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0",
   "checks": [
     {
       "name": "artifact",

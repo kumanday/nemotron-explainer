@@ -3,7 +3,7 @@
   "project": "nemotron-explainer",
   "final_artifact": {
     "path": "renders/submission-demo-v3.mp4",
-    "sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5",
+    "sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0",
     "container": "mp4",
     "video_codec": "h264",
     "resolution": "1920x1080",
@@ -89,7 +89,7 @@
     "preview": "submission/preview.html",
     "editable_source": "edit/hyperframes/film-v3/",
     "delivery_check": "scripts/check-delivery.py passes all gates on the final artifact",
-    "artifact_sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5"
+    "artifact_sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0"
   },
   "publication": "Awaits user authorization before repository push, YouTube upload, or Devpost submission.",
   "validation_status": "complete",
