@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "f2572072c4f250c4e0aa63c401dd2db14ffa6f8e3e448bf5138ab6458924980e",
+  "artifact_sha256": "e8f4518c72a2a8b66e7cca4fb15446dcf5377e07b888fb6861ded6273d9da229",
   "generated_footage": [
     {
       "result": "rough-cuts/manifests/results/f62d2fa5-4056-49af-bce8-1226121620f6.json",
@@ -12,22 +12,22 @@
   "motion_review": {
     "status": "passed",
     "reviewer": "nebius-hackathon/nvidia/Nemotron-3.5-Super-VL",
-    "artifact_sha256": "f2572072c4f250c4e0aa63c401dd2db14ffa6f8e3e448bf5138ab6458924980e",
+    "artifact_sha256": "e8f4518c72a2a8b66e7cca4fb15446dcf5377e07b888fb6861ded6273d9da229",
     "notes": "edit/hyperframes/film-v3/REVIEW.md",
     "sequences": [
       {
-        "start_s": 16.44,
-        "end_s": 32.16,
+        "start_s": 16.14,
+        "end_s": 31.56,
         "images": [
           "analysis/film-v3/frames2/t20.png",
           "analysis/film-v3/frames2/t25.png",
           "analysis/film-v3/frames2/t30.png"
         ],
-        "explanation": "The loop ring builds: Write → Render → Look → Fix nodes land as each verb is spoken, the Look node opens to show the one-shot error output, and a lime pulse travels once around the ring. The diagram develops in sync with the narration rather than appearing all at once."
+        "explanation": "The loop ring builds: Write \u2192 Render \u2192 Look \u2192 Fix nodes land as each verb is spoken, the Look node opens to show the one-shot error output, and a lime pulse travels once around the ring. The diagram develops in sync with the narration rather than appearing all at once."
       },
       {
-        "start_s": 61.84,
-        "end_s": 91.24,
+        "start_s": 60.64,
+        "end_s": 89.74,
         "images": [
           "analysis/film-v3/frames2/t70.png",
           "analysis/film-v3/frames2/t80.png",

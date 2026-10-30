@@ -1,6 +1,6 @@
 {
   "passed": false,
-  "artifact_sha256": "5ddea5da1011ef15e712f471f9858a33ba2aa59a89d985759156e9029395ddc5",
+  "artifact_sha256": "e8f4518c72a2a8b66e7cca4fb15446dcf5377e07b888fb6861ded6273d9da229",
   "checks": [
     {
       "name": "artifact",
@@ -57,18 +57,13 @@
       "name": "temporal_coverage",
       "passed": false,
       "detail": {
-        "max_near_static_hold_s": 13.5,
+        "max_near_static_hold_s": 6.5,
         "limit_s": 5,
         "intervals": [
           {
-            "start_s": 16.5,
+            "start_s": 17.0,
             "end_s": 21.5,
-            "duration_s": 5.0
-          },
-          {
-            "start_s": 22.5,
-            "end_s": 31.0,
-            "duration_s": 8.5
+            "duration_s": 4.5
           },
           {
             "start_s": 33.0,
@@ -101,26 +96,6 @@
             "duration_s": 4.0
           },
           {
-            "start_s": 68.0,
-            "end_s": 73.5,
-            "duration_s": 5.5
-          },
-          {
-            "start_s": 74.0,
-            "end_s": 84.0,
-            "duration_s": 10.0
-          },
-          {
-            "start_s": 85.0,
-            "end_s": 89.5,
-            "duration_s": 4.5
-          },
-          {
-            "start_s": 92.5,
-            "end_s": 106.0,
-            "duration_s": 13.5
-          },
-          {
             "start_s": 117.5,
             "end_s": 122.5,
             "duration_s": 5.0
@@ -139,11 +114,6 @@
             "start_s": 136.0,
             "end_s": 139.0,
             "duration_s": 3.0
-          },
-          {
-            "start_s": 140.0,
-            "end_s": 145.0,
-            "duration_s": 5.0
           }
         ],
         "note": "Pixel change detects long holds, not explanatory quality"
@@ -164,38 +134,409 @@
         "note": "No text overflow/overlap or errors in hyperframes check --at-transitions",
         "issues": [
           {
-            "code": "overlapping_gsap_tweens",
+            "code": "container_overflow",
             "severity": "warning",
-            "message": "GSAP tweens overlap on \"#r27\" for backgroundColor between 9.76s and 10.36s.",
-            "selector": "#r27",
-            "dataAttributes": {},
-            "sourceFile": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/compositions/board.html",
-            "bbox": {
-              "x": 0,
-              "y": 0,
-              "width": 0,
-              "height": 0
+            "time": 12.77,
+            "selector": "#chips",
+            "message": "Element extends outside a clipping layout container.",
+            "rect": {
+              "left": 1507.88,
+              "top": 901.55,
+              "right": 1780,
+              "bottom": 1112.55,
+              "width": 272.13,
+              "height": 211
             },
-            "time": 0,
-            "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`.",
-            "section": "lint"
+            "containerSelector": "#board > div:nth-of-type(1)",
+            "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+            "containerRect": {
+              "left": 0,
+              "top": 0,
+              "right": 1920,
+              "bottom": 1080,
+              "width": 1920,
+              "height": 1080
+            },
+            "overflow": {
+              "bottom": 32.55
+            },
+            "dataAttributes": {},
+            "sourceFile": "compositions/board.html",
+            "bbox": {
+              "x": 1507.88,
+              "y": 901.55,
+              "width": 272.13,
+              "height": 211
+            },
+            "firstSeen": 12.6,
+            "lastSeen": 16.14,
+            "occurrences": 45,
+            "heldMs": 3540.000000000001,
+            "times": [
+              12.6,
+              12.72,
+              12.745,
+              12.77,
+              12.795,
+              12.82,
+              12.89,
+              12.96,
+              12.97,
+              12.98,
+              13.024,
+              13.03,
+              13.08,
+              13.1,
+              13.12,
+              13.22,
+              13.32,
+              13.34,
+              13.36,
+              13.365,
+              13.37,
+              13.395,
+              13.42,
+              13.44,
+              13.46,
+              13.54,
+              13.62,
+              13.67,
+              13.72,
+              13.79,
+              13.86,
+              13.865,
+              13.87,
+              13.895,
+              13.92,
+              13.945,
+              13.97,
+              14.045,
+              14.12,
+              14.17,
+              14.22,
+              14.82,
+              15.42,
+              15.78,
+              16.14
+            ],
+            "section": "layout"
           },
           {
-            "code": "gsap_infinite_repeat",
-            "severity": "error",
-            "message": "GSAP tween uses `repeat: -1` (infinite) without a finite composition `data-duration`. The timeline can report an unbounded duration and make render planning fail.",
-            "selector": "[data-composition-id]",
+            "code": "container_overflow",
+            "severity": "warning",
+            "time": 92.32,
+            "selector": "#difftext",
+            "message": "Element extends outside a clipping layout container.",
+            "rect": {
+              "left": 145,
+              "top": 270.05,
+              "right": 1095,
+              "bottom": 831.55,
+              "width": 950,
+              "height": 561.5
+            },
+            "containerSelector": "#diffpanel",
+            "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+            "containerRect": {
+              "left": 120,
+              "top": 195.96,
+              "right": 1120,
+              "bottom": 815.96,
+              "width": 1000,
+              "height": 620
+            },
+            "overflow": {
+              "bottom": 15.59
+            },
             "dataAttributes": {},
-            "sourceFile": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/compositions/board.html",
+            "sourceFile": "compositions/fix.html",
+            "bbox": {
+              "x": 145,
+              "y": 270.05,
+              "width": 950,
+              "height": 561.5
+            },
+            "firstSeen": 92.32,
+            "lastSeen": 92.42,
+            "occurrences": 2,
+            "heldMs": 100.00000000000853,
+            "times": [
+              92.32,
+              92.42
+            ],
+            "section": "layout"
+          },
+          {
+            "code": "container_overflow",
+            "severity": "warning",
+            "time": 117.21,
+            "selector": "#stack > div:nth-of-type(1) > div:nth-of-type(1) > svg:nth-of-type(1) > circle:nth-of-type(1)",
+            "message": "Element extends outside a clipping layout container.",
+            "rect": {
+              "left": 147.39,
+              "top": 220,
+              "right": 757.52,
+              "bottom": 830.13,
+              "width": 610.13,
+              "height": 610.13
+            },
+            "containerSelector": "#stack > div:nth-of-type(1) > div:nth-of-type(1) > svg:nth-of-type(1)",
+            "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+            "containerRect": {
+              "left": 180,
+              "top": 200,
+              "right": 780,
+              "bottom": 800,
+              "width": 600,
+              "height": 600
+            },
+            "overflow": {
+              "left": 32.61,
+              "bottom": 30.13
+            },
+            "dataAttributes": {
+              "data-svg-origin": "20 20"
+            },
+            "sourceFile": "compositions/stack.html",
+            "bbox": {
+              "x": 147.39,
+              "y": 220,
+              "width": 610.13,
+              "height": 610.13
+            },
+            "firstSeen": 117.16,
+            "lastSeen": 133.47,
+            "occurrences": 47,
+            "heldMs": 4439.999999999998,
+            "times": [
+              117.16,
+              117.21,
+              117.212,
+              117.26,
+              117.31,
+              117.36,
+              117.485,
+              117.61,
+              117.635,
+              117.66,
+              117.71,
+              117.76,
+              117.81,
+              117.86,
+              117.985,
+              118.11,
+              118.185,
+              118.26,
+              119.16,
+              120.06,
+              120.933,
+              121.6,
+              123.14,
+              123.24,
+              123.34,
+              123.39,
+              123.44,
+              123.54,
+              123.64,
+              123.69,
+              123.74,
+              124.654,
+              126.96,
+              128.375,
+              130.18,
+              130.305,
+              130.43,
+              130.555,
+              130.68,
+              130.73,
+              130.78,
+              130.855,
+              130.93,
+              131.055,
+              131.18,
+              132.096,
+              133.47
+            ],
+            "section": "layout"
+          },
+          {
+            "code": "canvas_overflow",
+            "severity": "info",
+            "time": 12.6,
+            "selector": "#chips > div:nth-of-type(3)",
+            "message": "Text extends outside the composition canvas.",
+            "rect": {
+              "left": 1526.88,
+              "top": 1069.78,
+              "right": 1761,
+              "bottom": 1108.78,
+              "width": 234.12,
+              "height": 39
+            },
+            "containerSelector": "#root",
+            "text": "0 renders seen",
+            "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+            "containerRect": {
+              "left": 0,
+              "top": 0,
+              "right": 1920,
+              "bottom": 1080,
+              "width": 1920,
+              "height": 1080
+            },
+            "overflow": {
+              "bottom": 28.78
+            },
+            "dataAttributes": {},
+            "sourceFile": "compositions/board.html",
+            "bbox": {
+              "x": 1526.88,
+              "y": 1069.78,
+              "width": 234.12,
+              "height": 39
+            },
+            "firstSeen": 12.6,
+            "lastSeen": 16.14,
+            "occurrences": 45,
+            "heldMs": 3540.000000000001,
+            "times": [
+              12.6,
+              12.72,
+              12.745,
+              12.77,
+              12.795,
+              12.82,
+              12.89,
+              12.96,
+              12.97,
+              12.98,
+              13.024,
+              13.03,
+              13.08,
+              13.1,
+              13.12,
+              13.22,
+              13.32,
+              13.34,
+              13.36,
+              13.365,
+              13.37,
+              13.395,
+              13.42,
+              13.44,
+              13.46,
+              13.54,
+              13.62,
+              13.67,
+              13.72,
+              13.79,
+              13.86,
+              13.865,
+              13.87,
+              13.895,
+              13.92,
+              13.945,
+              13.97,
+              14.045,
+              14.12,
+              14.17,
+              14.22,
+              14.82,
+              15.42,
+              15.78,
+              16.14
+            ],
+            "section": "layout"
+          },
+          {
+            "code": "text_box_overflow",
+            "severity": "info",
+            "time": 92.32,
+            "selector": "#difftext",
+            "message": "Text extends outside its nearest visual/container box.",
+            "rect": {
+              "left": 145,
+              "top": 272.05,
+              "right": 1068.56,
+              "bottom": 828.46,
+              "width": 923.56,
+              "height": 556.41
+            },
+            "containerSelector": "#diffpanel",
+            "text": "diff --git a/compositions/tidepool.html b/compositions/tidepool.html- .phone { border: 1.28px solid rgba(23,31,42,0.64); border-radius: 21.76px; }+ .phone { border: 6.4px solid rgba(6,13,20,0.64); border-radius: 33.28px; }- #curve { stroke-width: 3.2; attr stroke-dashoffset }+ #curve { stroke-width: 3.84; GSAP onUpdate }- tl.fromTo(\"#curve\",{ attr:{ strokeDashoffset: L } });+ tl.fromTo(draw,{p:0},{p:0.64,duration:1.664,onUpdate:... });- #lowtide { top: 34.56%; }+ #lowtide { top: 25.6%; } /* rides the dot */- #wordmark { top: 48.64%; }+ #wordmark { top: 46.08%; } /* separated from headline */",
+            "fixHint": "Text is 924px x 556px inside 1000px x 620px and overflows by up to 13px; increase the container height to at least ~633px, or allow wrapping with max-width/fitTextFontSize.",
+            "containerRect": {
+              "left": 120,
+              "top": 195.96,
+              "right": 1120,
+              "bottom": 815.96,
+              "width": 1000,
+              "height": 620
+            },
+            "overflow": {
+              "bottom": 12.5
+            },
+            "dataAttributes": {},
+            "sourceFile": "compositions/fix.html",
+            "bbox": {
+              "x": 145,
+              "y": 272.05,
+              "width": 923.56,
+              "height": 556.41
+            },
+            "firstSeen": 92.32,
+            "lastSeen": 92.42,
+            "occurrences": 2,
+            "heldMs": 100.00000000000853,
+            "times": [
+              92.32,
+              92.42
+            ],
+            "section": "layout"
+          },
+          {
+            "code": "container_overflow",
+            "severity": "info",
+            "time": 116.91,
+            "selector": "#lower",
+            "message": "Element extends outside a clipping layout container.",
+            "rect": {
+              "left": 0,
+              "top": 977.47,
+              "right": 1920,
+              "bottom": 1087.47,
+              "width": 1920,
+              "height": 110
+            },
+            "containerSelector": "#result > div:nth-of-type(1)",
+            "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+            "containerRect": {
+              "left": 0,
+              "top": 0,
+              "right": 1920,
+              "bottom": 1080,
+              "width": 1920,
+              "height": 1080
+            },
+            "overflow": {
+              "bottom": 7.47
+            },
+            "dataAttributes": {},
+            "sourceFile": "compositions/result.html",
             "bbox": {
               "x": 0,
-              "y": 0,
-              "width": 0,
-              "height": 0
+              "y": 977.47,
+              "width": 1920,
+              "height": 110
             },
-            "time": 0,
-            "fixHint": "Add a finite composition `data-duration`, or replace `repeat: -1` with `repeat: Math.max(0, Math.floor(totalDuration / singleCycleDuration) - 1)`.",
-            "section": "lint"
+            "firstSeen": 116.91,
+            "lastSeen": 116.91,
+            "occurrences": 1,
+            "heldMs": 0,
+            "times": [
+              116.91
+            ],
+            "section": "layout"
           }
         ]
       }
@@ -207,7 +548,7 @@
     },
     {
       "name": "artifact_bound_evidence",
-      "passed": false,
+      "passed": true,
       "detail": "Evidence must name the actual encoded artifact SHA-256"
     },
     {

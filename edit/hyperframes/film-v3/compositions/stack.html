@@ -11,7 +11,7 @@
     #tools{position:absolute;left:900px;top:140px;width:880px;opacity:0;}
     .tool{font-size:28px;line-height:1.4;margin:0 0 12px 0;color:#f2f5f8;}
     .tool b{color:#c8f560;}
-    #cost{position:absolute;right:200px;top:260px;width:560px;opacity:0;}
+    #cost{position:absolute;left:900px;top:560px;width:560px;opacity:0;}
     .cnum{font-size:70px;font-weight:900;color:#c8f560;line-height:1;}
     .clabel{font-size:22px;color:#8d9bb0;margin:0 0 6px 0;}
     .cbasis{font-size:20px;color:#8d9bb0;margin:0 0 14px 0;}
@@ -39,7 +39,16 @@
   <script>
     /* @cues frame=8 */ const CUE = {"media": 6.08, "cost": 13.12}; const SCENE_END = 18.7; /* @end-cues */
     const tl=gsap.timeline({paused:true});
-    tl.to("#ring",{attr:{strokeDashoffset:0},duration:1.2,ease:"power2.inOut"},0);
+    const ring=document.getElementById("ring");
+    ring.style.strokeDasharray="1885"; ring.style.strokeDashoffset="1885";
+    tl.to({p:1},{p:0,duration:3.0,ease:"power2.inOut",onUpdate:function(){
+      ring.style.strokeDashoffset=(1885*this.target().p)+"px";
+    }},0);
+    // breathing ring pulse keeps the diagram alive across the read (finite, scene-length)
+    let breath={p:0};
+    tl.to(breath,{p:1,duration:2.2,yoyo:true,repeat:6,ease:"power2.inOut",onUpdate:function(){
+      ring.style.strokeDashoffset=(942*(1-breath.p))+"px";
+    }},3.2);
     tl.to("#nwrite",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.1);
     tl.to("#nrender",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.3);
     tl.to("#nlook",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.55);
