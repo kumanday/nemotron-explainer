@@ -144,3 +144,10 @@ Raw Pi sessions, provider logs, renders, narration audio and generated footage
 are kept local (see [.gitignore](.gitignore)). Review frames, diffs, receipts and
 sanitized evidence are included. Some records contain absolute paths from the
 machine the film was made on.
+
+## License
+
+[MIT](LICENSE) for the code and composition source in this repository.
+Media Tooling, TTV Pipeline and HyperFrames keep their own licenses, and
+generated narration and footage stay under their providers' terms (see
+[submission/LICENSE.md](submission/LICENSE.md)).

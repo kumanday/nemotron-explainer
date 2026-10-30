@@ -1,9 +1,12 @@
-# License (proposed, for owner review)
+# License
 
-This project is proposed to be released under the **MIT License**.
+This project is released under the **MIT License**; the full text is in the
+repository root [`LICENSE`](../LICENSE).
 
 ```
 MIT License
+
+Copyright (c) 2026 Leonardo Gonzalez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +29,7 @@ SOFTWARE.
 
 ## Component notes
 - The workflow code and composition source in this repository are covered by the
-  license above once the owner approves it.
+  license above.
 - Media Tooling, TTV Pipeline, and HyperFrames remain under their own licenses;
   this project only references them and does not redistribute their code.
 - Narration audio (eleven_v4) and any generated footage come from their
@@ -34,7 +37,3 @@ SOFTWARE.
   here.
 - Pi session transcripts and private evidence remain private and are not part of
   the public release.
-
-## Owner action
-Review and approve this license choice before any public repository push or
-submission.

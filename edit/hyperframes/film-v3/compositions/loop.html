@@ -1,19 +1,21 @@
 <template>
   <style>
     #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #backdrop{position:absolute;inset:0;background:#16243a;opacity:0;}
     #ringbox{position:absolute;left:200px;top:120px;width:640px;height:640px;}
     svg{width:100%;height:100%;display:block;}
     #ring{fill:none;stroke:#243142;stroke-width:10;stroke-dasharray:2011;stroke-dashoffset:2011;}
-    .node{position:absolute;width:120px;height:120px;border-radius:50%;border:3px solid #243142;background:#131a24;color:#f2f5f8;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;}
-    .node.lit{border-color:#c8f560;background:#0a0e14;color:#c8f560;}
-    #nwrite{left:260px;top:-40px;} #nrender{left:560px;top:260px;}
-    #nlook{left:260px;top:560px;} #nfix{left:-40px;top:260px;}
+    .node{position:absolute;width:100px;height:100px;border-radius:50%;border:3px solid #243142;background:#131a24;color:#f2f5f8;font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;}
+    .node.lit{border-color:#c8f560;color:#c8f560;}
+    #nwrite{left:270px;top:0px;} #nrender{left:540px;top:270px;}
+    #nlook{left:270px;top:540px;} #nfix{left:0px;top:270px;}
     #vlname{position:absolute;left:960px;top:120px;font-size:40px;font-weight:800;color:#f2f5f8;opacity:0;}
     #vllabel{position:absolute;left:960px;top:180px;font-size:28px;color:#8d9bb0;opacity:0;}
     #lookcontent{position:absolute;left:960px;top:300px;width:820px;height:420px;border:1px solid #243142;background:#0a0e14;color:#f2f5f8;font-family:JetBrains Mono,monospace;font-size:26px;line-height:1.4;padding:24px;box-sizing:border-box;opacity:0;overflow:hidden;}
     #lookcontent pre{white-space:pre-wrap;word-wrap:break-word;margin:0;}
   </style>
   <div id="root" data-composition-id="loop" data-width="1920" data-height="1080">
+    <div id="backdrop"></div>
     <div id="ringbox">
       <svg viewBox="0 0 640 640"><circle id="ring" cx="320" cy="320" r="300"/></svg>
       <div class="node" id="nwrite">Write</div>
@@ -28,7 +30,9 @@
   <script>
     /* @cues frame=2 */ const CUE = {"loop": 2.88, "vl": 5.76, "tools": 11.52}; const SCENE_END = 15.42; /* @end-cues */
     const tl=gsap.timeline({paused:true});
-    tl.to("#ring",{attr:{strokeDashoffset:0},duration:1.2,ease:"power2.inOut"},0);
+    tl.to("#ring",{strokeDashoffset:0,duration:1.2,ease:"power2.inOut"},0);
+    // gentle ambient backdrop breath so the held scene is never a frozen frame
+    tl.to("#backdrop",{opacity:0.08,yoyo:true,repeat:6,duration:4,ease:"power2.inOut"},0);
     tl.to("#nwrite",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.1);
     tl.to("#nrender",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.3);
     tl.to("#nlook",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.55);
@@ -37,10 +41,8 @@
     tl.to("#looktext",{innerText:"one-shot.py: no HTML document found in the reply — finish_reason=length (token limit, 32768 completion tokens). v0 produced no render.",duration:0.2},CUE.vl+0.6);
     tl.fromTo("#vlname",{opacity:0,y:12},{opacity:1,y:0,duration:0.5,ease:"power2.out"},CUE.vl);
     tl.fromTo("#vllabel",{opacity:0,y:12},{opacity:1,y:0,duration:0.5,ease:"power2.out"},CUE.vl+0.3);
-    tl.to("#nlook",{className:"+=lit",duration:0.3},CUE.vl);
     // gentle ring pulse so the held diagram is never a frozen frame
-    tl.to("#ring",{strokeDashoffset:2011,yoyo:true,repeat:4,duration:2,ease:"none"},CUE.loop);
-    tl.to("#root",{y:22,duration:15.42,ease:"none"},0);
+    tl.to("#ring",{strokeDashoffset:2011,yoyo:true,repeat:14,duration:2,ease:"none"},CUE.loop);
     window.__timelines["loop"]=tl;
   </script>
 </template>

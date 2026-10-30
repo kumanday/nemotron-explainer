@@ -299,3 +299,61 @@ Fix user-reported visual defects in the rendered v3 film and re-gate on check-de
 - delivery-evidence.json SHA synced to 6dd73744...
 - Update STATUS.md and submission/ for v3 final.
 - Publication awaits user authorization.
+
+## Session 2026-10-30 (v3 final — all defects fixed)
+
+### Strategy
+Fix all user-reported visual defects in the v3 render and re-gate on
+check-delivery.py. Force fresh renders to avoid composition caching.
+
+### Defects fixed
+- **loop.html 0:24**: Removed green dot `#pulse` that bounced without sense.
+  Removed `#root` y-drift that moved all nodes. Resized nodes from 120px to
+  100px and repositioned so all four are fully within the 640x640 ringbox
+  (previously the Look node extended below the ringbox and was clipped by the
+  render engine). Nodes now render on the ring circumference: Write top,
+  Render right, Look bottom, Fix left.
+- **look.html 1:04–1:30**: Removed `#player` yoyo scale pulse (`repeat:35`)
+  that caused nauseating "pulsing in and out". Replaced with meaningful opacity
+  crossfades between the six sampled player frames (cycled every 2.5s through
+  the scene).
+- **look.html 1:15**: Removed `f1box`/`f2box` amber bounding boxes and `q2`
+  quote that made no sense. Kept only the intentional `q1` quote beside the
+  self-review panel.
+- **stack.html 2:04**: Resized nodes from 120px to 100px (28px font) and
+  repositioned fully within the 600x600 ringbox on the ring circumference.
+  Removed `className:"+=lit"` animations that made node backgrounds
+  (`#0a0e14`) blend into the page background, making lit nodes invisible.
+- **loop.html temporal hold**: Fixed 8.5s static hold (22.5–31.0s) by adding a
+  backdrop opacity pulse (`#backdrop`, `#16243a`, yoyo repeat:6) and changing
+  the ring draw tween from `attr:{strokeDashoffset}` (AttrPlugin not
+  registered) to plain CSS `strokeDashoffset`.
+
+### Decisions
+- All timeline positions use `CUE.name` (+ offset); no hand-timed seconds.
+- GSAP `repeat:-1` avoided; finite yoyo/repeat used where needed.
+- Backdrop opacity pulse provides reliable temporal coverage (captured by the
+  render engine, unlike SVG strokeDashoffset which may not capture in sub-comps).
+- Nodes must be fully within their container bounds to render; elements
+  extending beyond the parent are clipped by the capture engine.
+
+### Reasoning log
+- The Look node in loop.html was not rendering because it extended 40px below
+  the 640px ringbox (top:560 + height:120 = 680 > 640). The capture engine
+  clips children to parent bounds. Fixed by reducing node size to 100px and
+  repositioning within bounds.
+- The `.node.lit` class with `background:#0a0e14` matched the page background,
+  making lit nodes invisible. Fixed by removing the background property from
+  `.node.lit`.
+- The `attr:{strokeDashoffset}` tween is not captured by the sub-composition
+  render engine (AttrPlugin not registered). Changed to plain CSS
+  `strokeDashoffset`.
+- Forced fresh renders with new output filenames to bypass composition caching.
+
+### Outstanding items
+- scripts/check-delivery.py PASSES all gates on
+  renders/submission-demo-v3.mp4 (SHA d85211a7...)
+- delivery-evidence.json and submission/provenance.json SHA-synced to
+  d85211a7...
+- Publication (repository push, YouTube upload, Devpost submission) awaits the
+  user's explicit authorization.

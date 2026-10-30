@@ -3,7 +3,7 @@
   "project": "nemotron-explainer",
   "final_artifact": {
     "path": "renders/submission-demo-v3.mp4",
-    "sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0",
+    "sha256": "d85211a7736d975c4eb4a6d6a4825d345a3fdc81bb620cd9ecf8f8ae9b3f31b3",
     "container": "mp4",
     "video_codec": "h264",
     "resolution": "1920x1080",
@@ -56,7 +56,7 @@
   },
   "components": {
     "pi": "agent loop, tools, sessions, route/usage evidence",
-    "nemotron": "Nemotron 3.5 Super VL on Nebius — creative decisions, script, composition authoring, visual review",
+    "nemotron": "Nemotron 3.5 Super VL on Nebius \u2014 creative decisions, script, composition authoring, visual review",
     "media_tooling": "narration (eleven_v4 via media-tts-frames), assembly, delivery checks",
     "ttv": "Generated tidepool footage (MiniMax H3, 5 s 1080p, clip f9ad56a4) mounted as a designed layer at assets/tidepool.mp4, visible 38.64-43.81 s; recorded in analysis/delivery-evidence.json and analysis/media-budget.json (op-3)",
     "hyperframes": "HTML composition with cue-timed reveals, explanatory motion graphics, explanatory motion review and local render"
@@ -89,7 +89,7 @@
     "preview": "submission/preview.html",
     "editable_source": "edit/hyperframes/film-v3/",
     "delivery_check": "scripts/check-delivery.py passes all gates on the final artifact",
-    "artifact_sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0"
+    "artifact_sha256": "d85211a7736d975c4eb4a6d6a4825d345a3fdc81bb620cd9ecf8f8ae9b3f31b3"
   },
   "publication": "Awaits user authorization before repository push, YouTube upload, or Devpost submission.",
   "validation_status": "complete",

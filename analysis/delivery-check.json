@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "artifact_sha256": "6dd737440cf274c66ad55da9ef9a5e9199bd6d17025610102fc1e7b15ddea2a0",
+  "artifact_sha256": "d85211a7736d975c4eb4a6d6a4825d345a3fdc81bb620cd9ecf8f8ae9b3f31b3",
   "checks": [
     {
       "name": "artifact",
@@ -60,11 +60,6 @@
         "max_near_static_hold_s": 4.5,
         "limit_s": 5,
         "intervals": [
-          {
-            "start_s": 17.0,
-            "end_s": 21.5,
-            "duration_s": 4.5
-          },
           {
             "start_s": 33.0,
             "end_s": 37.5,
