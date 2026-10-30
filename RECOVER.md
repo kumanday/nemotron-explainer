@@ -96,7 +96,7 @@ python3 scripts/one-shot.py --brief briefs/example-tidepool.md \
   --asset edit/hyperframes/tidepool-loop/assets/tidepool.mp4:assets/tidepool.mp4 \
   --out edit/hyperframes/tidepool-v0
 hyperframes render edit/hyperframes/tidepool-v0 \
-  --output /Users/magos/dev/nemotron-explainer/renders/tidepool-v0.mp4
+  --output "$PWD/renders/tidepool-v0.mp4"
 ```
 
 Do not edit v0, and run it once. If the render fails, keep the error output: that
