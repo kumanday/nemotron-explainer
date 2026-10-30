@@ -1,0 +1,331 @@
+{
+  "inventory": [
+    {
+      "time_s": 0.5,
+      "objects": [
+        {
+          "description": "Full-bleed tide pool footage showing sea anemones, rocks, kelp, and rippling water",
+          "box": [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        }
+      ],
+      "text": []
+    },
+    {
+      "time_s": 1.5,
+      "objects": [
+        {
+          "description": "Full-bleed tide pool footage showing sea anemones, rocks, kelp, and rippling water",
+          "box": [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        },
+        {
+          "description": "Thin horizontal band of reflected light sweeping across the center of the frame",
+          "box": [
+            0,
+            430,
+            1920,
+            520
+          ]
+        }
+      ],
+      "text": []
+    },
+    {
+      "time_s": 2.6,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        },
+        {
+          "description": "Small circular dot in sand accent color on the right side",
+          "box": [
+            1132,
+            464,
+            1142,
+            474
+          ]
+        }
+      ],
+      "text": []
+    },
+    {
+      "time_s": 3.4,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        },
+        {
+          "description": "Teal tide curve segment drawing in from the right",
+          "box": [
+            1132,
+            448,
+            1300,
+            488
+          ]
+        },
+        {
+          "description": "Dot at the end of the curve segment",
+          "box": [
+            1250,
+            460,
+            1260,
+            470
+          ]
+        }
+      ],
+      "text": []
+    },
+    {
+      "time_s": 4.2,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        },
+        {
+          "description": "Complete teal tide curve spanning the right side",
+          "box": [
+            1132,
+            448,
+            1630,
+            530
+          ]
+        },
+        {
+          "description": "Dot at the right end of the curve",
+          "box": [
+            1580,
+            505,
+            1590,
+            515
+          ]
+        }
+      ],
+      "text": []
+    },
+    {
+      "time_s": 5.2,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        }
+      ],
+      "text": [
+        {
+          "content": "Low tide 4:12 PM",
+          "box": [
+            1130,
+            404,
+            1710,
+            446
+          ],
+          "color": "sand gold"
+        }
+      ]
+    },
+    {
+      "time_s": 6.4,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        }
+      ],
+      "text": [
+        {
+          "content": "Low tide 4:12 PM",
+          "box": [
+            1130,
+            404,
+            1710,
+            446
+          ],
+          "color": "sand gold"
+        },
+        {
+          "content": "Know the tide before you go.",
+          "box": [
+            1130,
+            510,
+            1880,
+            700
+          ],
+          "color": "white"
+        },
+        {
+          "content": "Tidepool",
+          "box": [
+            1130,
+            715,
+            1350,
+            775
+          ],
+          "color": "sea-glass teal"
+        },
+        {
+          "content": "Free on iOS and Android",
+          "box": [
+            1130,
+            825,
+            1700,
+            855
+          ],
+          "color": "light grey"
+        }
+      ]
+    },
+    {
+      "time_s": 7.6,
+      "objects": [
+        {
+          "description": "Smartphone device with rounded corners displaying tide pool footage on its screen",
+          "box": [
+            382,
+            182,
+            938,
+            862
+          ]
+        }
+      ],
+      "text": [
+        {
+          "content": "Low tide 4:12 PM",
+          "box": [
+            1130,
+            404,
+            1710,
+            446
+          ],
+          "color": "sand gold"
+        },
+        {
+          "content": "Know the tide before you go.",
+          "box": [
+            1130,
+            510,
+            1880,
+            700
+          ],
+          "color": "white"
+        },
+        {
+          "content": "Tidepool",
+          "box": [
+            1130,
+            715,
+            1350,
+            775
+          ],
+          "color": "sea-glass teal"
+        },
+        {
+          "content": "Free on iOS and Android",
+          "box": [
+            1130,
+            825,
+            1700,
+            855
+          ],
+          "color": "light grey"
+        }
+      ]
+    }
+  ],
+  "brief_check": [
+    {
+      "requirement": "Open full-bleed on the tide-pool clip from 0.0\u20132.6 s",
+      "status": "present",
+      "evidence": "frame t=0.5: Tide pool footage fills entire frame"
+    },
+    {
+      "requirement": "A thin horizon of light sweeps once across the frame",
+      "status": "present",
+      "evidence": "frame t=1.5: Horizontal band of reflected light visible across center"
+    },
+    {
+      "requirement": "Footage shrinks into the screen of a phone that rises from the bottom edge, 2.6\u20135.2 s",
+      "status": "present",
+      "evidence": "frame t=2.6: Smartphone visible with footage inside"
+    },
+    {
+      "requirement": "Beside the phone, a tide curve draws left to right with a dot riding it",
+      "status": "present",
+      "evidence": "frame t=4.2: Teal curve drawn across right side with dot at end"
+    },
+    {
+      "requirement": "Label \"Low tide 4:12 PM\"",
+      "status": "present",
+      "evidence": "frame t=5.2: Text \"Low tide 4:12 PM\" visible on right"
+    },
+    {
+      "requirement": "Headline \"Know the tide before you go.\" lands beside the phone, 5.2\u20138.0 s",
+      "status": "present",
+      "evidence": "frame t=6.4: Headline text visible beside phone"
+    },
+    {
+      "requirement": "Wordmark \"Tidepool\" and line \"Free on iOS and Android\"",
+      "status": "present",
+      "evidence": "frame t=6.4: Both text elements visible below headline"
+    },
+    {
+      "requirement": "Everything settles and holds still for the final second",
+      "status": "present",
+      "evidence": "frame t=7.6: Composition identical to t=6.4, indicating hold"
+    },
+    {
+      "requirement": "Phone about 60% of frame height, never cropped",
+      "status": "present",
+      "evidence": "frame t=2.6: Phone height approx 680px (63% of 1080px), fully visible"
+    },
+    {
+      "requirement": "Nothing touches the frame edges except the opening footage",
+      "status": "present",
+      "evidence": "frame t=2.6: Phone and text are inset from edges; only navy background touches edges"
+    }
+  ],
+  "scores": {
+    "Engagement": 5,
+    "Prompt-Intent": 5,
+    "Composition": 5,
+    "Temporal": 5,
+    "Craft": 5
+  },
+  "findings": []
+}

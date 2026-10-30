@@ -1,0 +1,56 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #ringbox{position:absolute;left:180px;top:200px;width:600px;height:600px;}
+    svg{width:100%;height:100%;display:block;}
+    #ring{fill:none;stroke:#243142;stroke-width:10;stroke-dasharray:1885;stroke-dashoffset:1885;}
+    .node{position:absolute;width:104px;height:104px;border-radius:50%;border:3px solid #243142;background:#131a24;color:#f2f5f8;font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;}
+    .node.lit{border-color:#c8f560;background:#0a0e14;color:#c8f560;}
+    #nwrite{top:20px;left:248px;} #nrender{top:248px;right:20px;}
+    #nlook{bottom:20px;left:248px;} #nfix{top:248px;left:20px;}
+    #tools{position:absolute;left:900px;top:140px;width:880px;opacity:0;}
+    .tool{font-size:28px;line-height:1.4;margin:0 0 12px 0;color:#f2f5f8;}
+    .tool b{color:#c8f560;}
+    #cost{position:absolute;right:200px;top:260px;width:560px;opacity:0;}
+    .cnum{font-size:70px;font-weight:900;color:#c8f560;line-height:1;}
+    .clabel{font-size:22px;color:#8d9bb0;margin:0 0 6px 0;}
+    .cbasis{font-size:20px;color:#8d9bb0;margin:0 0 14px 0;}
+  </style>
+  <div id="root" data-composition-id="stack" data-width="1920" data-height="1080">
+    <div id="ringbox">
+      <svg viewBox="0 0 600 600"><circle id="ring" cx="300" cy="300" r="280"/></svg>
+      <div class="node" id="nwrite">Write</div>
+      <div class="node" id="nrender">Render</div>
+      <div class="node" id="nlook">Look</div>
+      <div class="node" id="nfix">Fix</div>
+    </div>
+    <div id="tools">
+      <div class="tool">Write / Look / Fix <b>→ Nemotron 3.5 Super VL · Nebius Token Factory</b></div>
+      <div class="tool">Render <b>→ HyperFrames</b></div>
+      <div class="tool">Footage <b>→ TTV · MiniMax</b> (generated clip, muted)</div>
+      <div class="tool">Harness <b>→ Pi</b></div>
+    </div>
+    <div id="cost">
+      <div id="c1" class="cnum">1</div><div class="clabel">rounds of the loop</div><div class="cbasis">Basis: one one-shot call, then one loop render.</div>
+      <div id="c2" class="cnum">≈4</div><div class="clabel">minutes of wall-clock time</div><div class="cbasis">Basis: measured round time, not an invoice.</div>
+      <div id="c3" class="cnum">—</div><div class="clabel">inference cost (tracked separately)</div><div class="cbasis">Basis: Nebius route usage; estimate is not an invoice.</div>
+    </div>
+  </div>
+  <script>
+    /* @cues frame=8 */ const CUE = {"media": 6.08, "cost": 13.12}; const SCENE_END = 18.7; /* @end-cues */
+    const tl=gsap.timeline({paused:true});
+    tl.to("#ring",{attr:{strokeDashoffset:0},duration:1.2,ease:"power2.inOut"},0);
+    tl.to("#nwrite",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.1);
+    tl.to("#nrender",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.3);
+    tl.to("#nlook",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.55);
+    tl.to("#nfix",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.7);
+    tl.to("#tools",{opacity:1,y:14,duration:0.6,ease:"power2.out"},CUE.media);
+    tl.to("#nwrite,#nlook,#nfix",{className:"+=lit",duration:0.3},CUE.media);
+    tl.to("#nrender",{className:"+=lit",duration:0.3},CUE.media+0.2);
+    tl.to("#cost",{opacity:1,y:14,duration:0.6,ease:"power2.out"},CUE.cost);
+    tl.fromTo("#c1",{scale:0.6,opacity:0},{scale:1,opacity:1,duration:0.5,ease:"power2.out"},CUE.cost);
+    tl.fromTo("#c2",{scale:0.6,opacity:0},{scale:1,opacity:1,duration:0.5,ease:"power2.out"},CUE.cost+0.25);
+    tl.fromTo("#c3",{scale:0.6,opacity:0},{scale:1,opacity:1,duration:0.5,ease:"power2.out"},CUE.cost+0.5);
+    window.__timelines["stack"]=tl;
+  </script>
+</template>

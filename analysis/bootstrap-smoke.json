@@ -1,0 +1,22 @@
+{
+  "run_id": "smoke-9e45ad242068",
+  "passed": true,
+  "checks": {
+    "pi_exit_zero": true,
+    "expected_route": true,
+    "image_sent": true,
+    "read_tool_completed": true,
+    "write_tool_completed": true,
+    "colors_correct": true,
+    "clean_final_stop": true,
+    "no_failed_or_truncated_turns": true,
+    "usage_retained": true
+  },
+  "provider_requests": 3,
+  "observed": {
+    "left": "red",
+    "right": "blue"
+  },
+  "estimated_inference_cost_usd": 0.0015855,
+  "private_diagnostics": ".pi/smoke/smoke-9e45ad242068"
+}

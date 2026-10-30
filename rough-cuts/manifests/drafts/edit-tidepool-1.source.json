@@ -1,0 +1,20 @@
+{
+  "edit_revision_id": "edit-tidepool-1",
+  "project_id": "nemotron-explainer",
+  "storyboard_revision_id": "storyboard-2",
+  "source_results": [{"result_id": "f62d2fa5-4056-49af-bce8-1226121620f6", "sha256": "sha256:2f41032aba87548c42651a3f9dfa31cc9a2a92984c53c09f88ad276b816de249"}],
+  "scenes": [{
+    "scene_id": "scene-01",
+    "order": 1,
+    "take_id": "7d05743d-d720-43fd-9d9e-9f5181f090d0",
+    "transition_out": {"type": "cut", "editorial_note": null},
+    "clip_edits": [{
+      "clip_id": "f9ad56a4-aaf2-43b7-ace9-8afae26183ca",
+      "order": 0,
+      "trim_in_s": 0,
+      "trim_out_s": 5,
+      "audio_use": "mute"
+    }]
+  }],
+  "continuity_decisions": []
+}

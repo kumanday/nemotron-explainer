@@ -1,0 +1,40 @@
+{
+  "artifact_sha256": "f2572072c4f250c4e0aa63c401dd2db14ffa6f8e3e448bf5138ab6458924980e",
+  "generated_footage": [
+    {
+      "result": "rough-cuts/manifests/results/f62d2fa5-4056-49af-bce8-1226121620f6.json",
+      "clip_id": "f9ad56a4-aaf2-43b7-ace9-8afae26183ca",
+      "composition_src": "assets/tidepool.mp4",
+      "visible_start_s": 38.64,
+      "visible_end_s": 43.81
+    }
+  ],
+  "motion_review": {
+    "status": "passed",
+    "reviewer": "nebius-hackathon/nvidia/Nemotron-3.5-Super-VL",
+    "artifact_sha256": "f2572072c4f250c4e0aa63c401dd2db14ffa6f8e3e448bf5138ab6458924980e",
+    "notes": "edit/hyperframes/film-v3/REVIEW.md",
+    "sequences": [
+      {
+        "start_s": 16.44,
+        "end_s": 32.16,
+        "images": [
+          "analysis/film-v3/frames2/t20.png",
+          "analysis/film-v3/frames2/t25.png",
+          "analysis/film-v3/frames2/t30.png"
+        ],
+        "explanation": "The loop ring builds: Write → Render → Look → Fix nodes land as each verb is spoken, the Look node opens to show the one-shot error output, and a lime pulse travels once around the ring. The diagram develops in sync with the narration rather than appearing all at once."
+      },
+      {
+        "start_s": 61.84,
+        "end_s": 91.24,
+        "images": [
+          "analysis/film-v3/frames2/t70.png",
+          "analysis/film-v3/frames2/t80.png",
+          "analysis/film-v3/frames2/t90.png"
+        ],
+        "explanation": "The look scene: six sampled r1 frames fly into a filmstrip, one expands into the player, the self-review and blind-review score panels appear side by side, and amber boxes draw around the regions each review named with the review's own quote beside each."
+      }
+    ]
+  }
+}

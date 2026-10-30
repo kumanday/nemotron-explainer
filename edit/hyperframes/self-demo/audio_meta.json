@@ -1,0 +1,1347 @@
+{
+ "bgm": null,
+ "bgm_pending": false,
+ "voices": [
+  {
+   "frame": 1,
+   "path": "assets/voice/01.mp3",
+   "duration_s": 5.88,
+   "source": "host",
+   "words": [
+    {
+     "id": "w01-000",
+     "text": "Every",
+     "start": 0.0,
+     "end": 0.4
+    },
+    {
+     "id": "w01-001",
+     "text": "frame",
+     "start": 0.56,
+     "end": 0.8
+    },
+    {
+     "id": "w01-002",
+     "text": "of",
+     "start": 0.84,
+     "end": 0.88
+    },
+    {
+     "id": "w01-003",
+     "text": "this",
+     "start": 0.96,
+     "end": 1.12
+    },
+    {
+     "id": "w01-004",
+     "text": "film",
+     "start": 1.2,
+     "end": 1.44
+    },
+    {
+     "id": "w01-005",
+     "text": "was",
+     "start": 1.56,
+     "end": 1.68
+    },
+    {
+     "id": "w01-006",
+     "text": "planned,",
+     "start": 1.76,
+     "end": 2.48
+    },
+    {
+     "id": "w01-007",
+     "text": "built,",
+     "start": 2.64,
+     "end": 2.96
+    },
+    {
+     "id": "w01-008",
+     "text": "and",
+     "start": 3.08,
+     "end": 3.2
+    },
+    {
+     "id": "w01-009",
+     "text": "reviewed",
+     "start": 3.44,
+     "end": 3.84
+    },
+    {
+     "id": "w01-010",
+     "text": "by",
+     "start": 3.92,
+     "end": 4.0
+    },
+    {
+     "id": "w01-011",
+     "text": "this",
+     "start": 4.12,
+     "end": 4.24
+    },
+    {
+     "id": "w01-012",
+     "text": "same",
+     "start": 4.32,
+     "end": 4.56
+    },
+    {
+     "id": "w01-013",
+     "text": "workflow.",
+     "start": 4.64,
+     "end": 5.28
+    }
+   ]
+  },
+  {
+   "frame": 2,
+   "path": "assets/voice/02.mp3",
+   "duration_s": 9.48,
+   "source": "host",
+   "words": [
+    {
+     "id": "w02-000",
+     "text": "It",
+     "start": 0.0,
+     "end": 0.16
+    },
+    {
+     "id": "w02-001",
+     "text": "starts",
+     "start": 0.32,
+     "end": 0.48
+    },
+    {
+     "id": "w02-002",
+     "text": "with",
+     "start": 0.56,
+     "end": 0.64
+    },
+    {
+     "id": "w02-003",
+     "text": "a",
+     "start": 0.72,
+     "end": 0.8
+    },
+    {
+     "id": "w02-004",
+     "text": "short",
+     "start": 0.96,
+     "end": 1.12
+    },
+    {
+     "id": "w02-005",
+     "text": "Markdown",
+     "start": 1.2,
+     "end": 1.6
+    },
+    {
+     "id": "w02-006",
+     "text": "brief.",
+     "start": 1.68,
+     "end": 2.48
+    },
+    {
+     "id": "w02-007",
+     "text": "Nemotron",
+     "start": 2.52,
+     "end": 3.04
+    },
+    {
+     "id": "w02-008",
+     "text": "reads",
+     "start": 3.12,
+     "end": 3.36
+    },
+    {
+     "id": "w02-009",
+     "text": "the",
+     "start": 3.44,
+     "end": 3.52
+    },
+    {
+     "id": "w02-010",
+     "text": "brief,",
+     "start": 3.72,
+     "end": 4.16
+    },
+    {
+     "id": "w02-011",
+     "text": "selects",
+     "start": 4.24,
+     "end": 4.64
+    },
+    {
+     "id": "w02-012",
+     "text": "the",
+     "start": 4.72,
+     "end": 4.8
+    },
+    {
+     "id": "w02-013",
+     "text": "model",
+     "start": 4.92,
+     "end": 5.04
+    },
+    {
+     "id": "w02-014",
+     "text": "route",
+     "start": 5.12,
+     "end": 5.36
+    },
+    {
+     "id": "w02-015",
+     "text": "on",
+     "start": 5.44,
+     "end": 5.52
+    },
+    {
+     "id": "w02-016",
+     "text": "Nebius",
+     "start": 5.56,
+     "end": 5.92
+    },
+    {
+     "id": "w02-017",
+     "text": "Token",
+     "start": 6.0,
+     "end": 6.24
+    },
+    {
+     "id": "w02-018",
+     "text": "Factory,",
+     "start": 6.32,
+     "end": 7.12
+    },
+    {
+     "id": "w02-019",
+     "text": "and",
+     "start": 7.2,
+     "end": 7.28
+    },
+    {
+     "id": "w02-020",
+     "text": "authors",
+     "start": 7.36,
+     "end": 7.68
+    },
+    {
+     "id": "w02-021",
+     "text": "the",
+     "start": 7.76,
+     "end": 7.84
+    },
+    {
+     "id": "w02-022",
+     "text": "storyboard.",
+     "start": 7.92,
+     "end": 8.96
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "path": "assets/voice/03.mp3",
+   "duration_s": 10.2,
+   "source": "host",
+   "words": [
+    {
+     "id": "w03-000",
+     "text": "Media",
+     "start": 0.0,
+     "end": 0.32
+    },
+    {
+     "id": "w03-001",
+     "text": "Tooling",
+     "start": 0.4,
+     "end": 0.88
+    },
+    {
+     "id": "w03-002",
+     "text": "narrates",
+     "start": 0.92,
+     "end": 1.28
+    },
+    {
+     "id": "w03-003",
+     "text": "the",
+     "start": 1.36,
+     "end": 1.44
+    },
+    {
+     "id": "w03-004",
+     "text": "script",
+     "start": 1.52,
+     "end": 1.92
+    },
+    {
+     "id": "w03-005",
+     "text": "with",
+     "start": 2.0,
+     "end": 2.08
+    },
+    {
+     "id": "w03-006",
+     "text": "the",
+     "start": 2.12,
+     "end": 2.16
+    },
+    {
+     "id": "w03-007",
+     "text": "configured",
+     "start": 2.24,
+     "end": 2.72
+    },
+    {
+     "id": "w03-008",
+     "text": "voice,",
+     "start": 2.8,
+     "end": 3.52
+    },
+    {
+     "id": "w03-009",
+     "text": "and",
+     "start": 3.64,
+     "end": 3.76
+    },
+    {
+     "id": "w03-010",
+     "text": "HyperFrames",
+     "start": 3.84,
+     "end": 4.64
+    },
+    {
+     "id": "w03-011",
+     "text": "turns",
+     "start": 4.76,
+     "end": 4.96
+    },
+    {
+     "id": "w03-012",
+     "text": "the",
+     "start": 5.0,
+     "end": 5.04
+    },
+    {
+     "id": "w03-013",
+     "text": "storyboard",
+     "start": 5.12,
+     "end": 5.76
+    },
+    {
+     "id": "w03-014",
+     "text": "into",
+     "start": 5.92,
+     "end": 6.08
+    },
+    {
+     "id": "w03-015",
+     "text": "editable",
+     "start": 6.32,
+     "end": 6.56
+    },
+    {
+     "id": "w03-016",
+     "text": "motion",
+     "start": 6.64,
+     "end": 6.96
+    },
+    {
+     "id": "w03-017",
+     "text": "graphics",
+     "start": 7.04,
+     "end": 7.6
+    },
+    {
+     "id": "w03-018",
+     "text": "with",
+     "start": 7.68,
+     "end": 7.84
+    },
+    {
+     "id": "w03-019",
+     "text": "real",
+     "start": 7.92,
+     "end": 8.16
+    },
+    {
+     "id": "w03-020",
+     "text": "captures",
+     "start": 8.24,
+     "end": 8.72
+    },
+    {
+     "id": "w03-021",
+     "text": "on",
+     "start": 8.8,
+     "end": 8.88
+    },
+    {
+     "id": "w03-022",
+     "text": "screen.",
+     "start": 9.04,
+     "end": 9.6
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "path": "assets/voice/04.mp3",
+   "duration_s": 11.8,
+   "source": "host",
+   "words": [
+    {
+     "id": "w04-000",
+     "text": "We",
+     "start": 0.0,
+     "end": 0.16
+    },
+    {
+     "id": "w04-001",
+     "text": "inspect",
+     "start": 0.4,
+     "end": 0.64
+    },
+    {
+     "id": "w04-002",
+     "text": "real",
+     "start": 0.72,
+     "end": 1.04
+    },
+    {
+     "id": "w04-003",
+     "text": "frames",
+     "start": 1.12,
+     "end": 1.52
+    },
+    {
+     "id": "w04-004",
+     "text": "at",
+     "start": 1.6,
+     "end": 1.68
+    },
+    {
+     "id": "w04-005",
+     "text": "delivery",
+     "start": 1.92,
+     "end": 2.16
+    },
+    {
+     "id": "w04-006",
+     "text": "size.",
+     "start": 2.24,
+     "end": 3.28
+    },
+    {
+     "id": "w04-007",
+     "text": "One",
+     "start": 3.36,
+     "end": 3.52
+    },
+    {
+     "id": "w04-008",
+     "text": "frame",
+     "start": 3.6,
+     "end": 3.84
+    },
+    {
+     "id": "w04-009",
+     "text": "was",
+     "start": 3.92,
+     "end": 4.08
+    },
+    {
+     "id": "w04-010",
+     "text": "unclear",
+     "start": 4.16,
+     "end": 4.64
+    },
+    {
+     "id": "w04-011",
+     "text": "after",
+     "start": 4.72,
+     "end": 4.96
+    },
+    {
+     "id": "w04-012",
+     "text": "review,",
+     "start": 5.36,
+     "end": 5.8
+    },
+    {
+     "id": "w04-013",
+     "text": "so",
+     "start": 5.84,
+     "end": 6.08
+    },
+    {
+     "id": "w04-014",
+     "text": "we",
+     "start": 6.16,
+     "end": 6.24
+    },
+    {
+     "id": "w04-015",
+     "text": "revised",
+     "start": 6.32,
+     "end": 6.64
+    },
+    {
+     "id": "w04-016",
+     "text": "the",
+     "start": 6.72,
+     "end": 6.8
+    },
+    {
+     "id": "w04-017",
+     "text": "composition",
+     "start": 7.16,
+     "end": 7.52
+    },
+    {
+     "id": "w04-018",
+     "text": "and",
+     "start": 7.6,
+     "end": 7.68
+    },
+    {
+     "id": "w04-019",
+     "text": "re-rendered.",
+     "start": 7.76,
+     "end": 8.84
+    },
+    {
+     "id": "w04-020",
+     "text": "That",
+     "start": 8.88,
+     "end": 9.04
+    },
+    {
+     "id": "w04-021",
+     "text": "revision",
+     "start": 9.32,
+     "end": 9.6
+    },
+    {
+     "id": "w04-022",
+     "text": "is",
+     "start": 9.68,
+     "end": 9.76
+    },
+    {
+     "id": "w04-023",
+     "text": "what",
+     "start": 9.84,
+     "end": 9.92
+    },
+    {
+     "id": "w04-024",
+     "text": "you",
+     "start": 10.0,
+     "end": 10.08
+    },
+    {
+     "id": "w04-025",
+     "text": "see",
+     "start": 10.16,
+     "end": 10.24
+    },
+    {
+     "id": "w04-026",
+     "text": "next.",
+     "start": 10.32,
+     "end": 11.28
+    }
+   ]
+  },
+  {
+   "frame": 5,
+   "path": "assets/voice/05.mp3",
+   "duration_s": 22.68,
+   "source": "host",
+   "words": [
+    {
+     "id": "w05-000",
+     "text": "The",
+     "start": 0.0,
+     "end": 0.08
+    },
+    {
+     "id": "w05-001",
+     "text": "result",
+     "start": 0.36,
+     "end": 0.64
+    },
+    {
+     "id": "w05-002",
+     "text": "is",
+     "start": 0.72,
+     "end": 0.8
+    },
+    {
+     "id": "w05-003",
+     "text": "a",
+     "start": 0.84,
+     "end": 0.88
+    },
+    {
+     "id": "w05-004",
+     "text": "coherent",
+     "start": 0.96,
+     "end": 1.52
+    },
+    {
+     "id": "w05-005",
+     "text": "passage",
+     "start": 1.6,
+     "end": 2.16
+    },
+    {
+     "id": "w05-006",
+     "text": "built",
+     "start": 2.28,
+     "end": 2.4
+    },
+    {
+     "id": "w05-007",
+     "text": "from",
+     "start": 2.48,
+     "end": 2.72
+    },
+    {
+     "id": "w05-008",
+     "text": "real",
+     "start": 2.84,
+     "end": 2.96
+    },
+    {
+     "id": "w05-009",
+     "text": "captures,",
+     "start": 3.04,
+     "end": 3.96
+    },
+    {
+     "id": "w05-010",
+     "text": "generated",
+     "start": 4.0,
+     "end": 4.48
+    },
+    {
+     "id": "w05-011",
+     "text": "footage,",
+     "start": 4.56,
+     "end": 5.2
+    },
+    {
+     "id": "w05-012",
+     "text": "and",
+     "start": 5.28,
+     "end": 5.36
+    },
+    {
+     "id": "w05-013",
+     "text": "editable",
+     "start": 5.56,
+     "end": 5.76
+    },
+    {
+     "id": "w05-014",
+     "text": "graphics,",
+     "start": 5.84,
+     "end": 6.76
+    },
+    {
+     "id": "w05-015",
+     "text": "with",
+     "start": 6.8,
+     "end": 6.88
+    },
+    {
+     "id": "w05-016",
+     "text": "the",
+     "start": 6.96,
+     "end": 7.04
+    },
+    {
+     "id": "w05-017",
+     "text": "narration",
+     "start": 7.08,
+     "end": 7.68
+    },
+    {
+     "id": "w05-018",
+     "text": "synced",
+     "start": 7.76,
+     "end": 8.08
+    },
+    {
+     "id": "w05-019",
+     "text": "to",
+     "start": 8.12,
+     "end": 8.16
+    },
+    {
+     "id": "w05-020",
+     "text": "the",
+     "start": 8.24,
+     "end": 8.32
+    },
+    {
+     "id": "w05-021",
+     "text": "word",
+     "start": 8.44,
+     "end": 8.56
+    },
+    {
+     "id": "w05-022",
+     "text": "timings",
+     "start": 8.68,
+     "end": 9.04
+    },
+    {
+     "id": "w05-023",
+     "text": "from",
+     "start": 9.12,
+     "end": 9.28
+    },
+    {
+     "id": "w05-024",
+     "text": "Media",
+     "start": 9.44,
+     "end": 9.6
+    },
+    {
+     "id": "w05-025",
+     "text": "Tooling.",
+     "start": 9.68,
+     "end": 10.76
+    },
+    {
+     "id": "w05-026",
+     "text": "Every",
+     "start": 10.8,
+     "end": 11.12
+    },
+    {
+     "id": "w05-027",
+     "text": "beat",
+     "start": 11.2,
+     "end": 11.52
+    },
+    {
+     "id": "w05-028",
+     "text": "traces",
+     "start": 11.6,
+     "end": 11.92
+    },
+    {
+     "id": "w05-029",
+     "text": "to",
+     "start": 12.0,
+     "end": 12.08
+    },
+    {
+     "id": "w05-030",
+     "text": "an",
+     "start": 12.2,
+     "end": 12.32
+    },
+    {
+     "id": "w05-031",
+     "text": "actual",
+     "start": 12.4,
+     "end": 12.8
+    },
+    {
+     "id": "w05-032",
+     "text": "artifact",
+     "start": 12.88,
+     "end": 13.36
+    },
+    {
+     "id": "w05-033",
+     "text": "in",
+     "start": 13.4,
+     "end": 13.44
+    },
+    {
+     "id": "w05-034",
+     "text": "this",
+     "start": 13.56,
+     "end": 13.68
+    },
+    {
+     "id": "w05-035",
+     "text": "project.",
+     "start": 14.24,
+     "end": 14.84
+    },
+    {
+     "id": "w05-036",
+     "text": "The",
+     "start": 14.88,
+     "end": 14.96
+    },
+    {
+     "id": "w05-037",
+     "text": "pilot",
+     "start": 15.04,
+     "end": 15.28
+    },
+    {
+     "id": "w05-038",
+     "text": "run",
+     "start": 15.36,
+     "end": 15.44
+    },
+    {
+     "id": "w05-039",
+     "text": "you",
+     "start": 15.52,
+     "end": 15.6
+    },
+    {
+     "id": "w05-040",
+     "text": "saw",
+     "start": 15.68,
+     "end": 15.84
+    },
+    {
+     "id": "w05-041",
+     "text": "earlier",
+     "start": 15.92,
+     "end": 16.4
+    },
+    {
+     "id": "w05-042",
+     "text": "feeds",
+     "start": 16.48,
+     "end": 16.72
+    },
+    {
+     "id": "w05-043",
+     "text": "directly",
+     "start": 16.96,
+     "end": 17.36
+    },
+    {
+     "id": "w05-044",
+     "text": "into",
+     "start": 17.48,
+     "end": 17.6
+    },
+    {
+     "id": "w05-045",
+     "text": "this",
+     "start": 17.72,
+     "end": 17.84
+    },
+    {
+     "id": "w05-046",
+     "text": "film,",
+     "start": 18.16,
+     "end": 18.533
+    },
+    {
+     "id": "w05-047",
+     "text": "so",
+     "start": 18.587,
+     "end": 18.64
+    },
+    {
+     "id": "w05-048",
+     "text": "the",
+     "start": 18.68,
+     "end": 18.72
+    },
+    {
+     "id": "w05-049",
+     "text": "demonstration",
+     "start": 18.76,
+     "end": 19.44
+    },
+    {
+     "id": "w05-050",
+     "text": "stays",
+     "start": 19.52,
+     "end": 19.84
+    },
+    {
+     "id": "w05-051",
+     "text": "grounded",
+     "start": 20.0,
+     "end": 20.32
+    },
+    {
+     "id": "w05-052",
+     "text": "in",
+     "start": 20.4,
+     "end": 20.56
+    },
+    {
+     "id": "w05-053",
+     "text": "real",
+     "start": 20.64,
+     "end": 20.88
+    },
+    {
+     "id": "w05-054",
+     "text": "operation.",
+     "start": 20.96,
+     "end": 22.16
+    }
+   ]
+  },
+  {
+   "frame": 6,
+   "path": "assets/voice/06.mp3",
+   "duration_s": 31.8,
+   "source": "host",
+   "words": [
+    {
+     "id": "w06-000",
+     "text": "This",
+     "start": 0.0,
+     "end": 0.24
+    },
+    {
+     "id": "w06-001",
+     "text": "film",
+     "start": 0.32,
+     "end": 0.48
+    },
+    {
+     "id": "w06-002",
+     "text": "itself",
+     "start": 0.56,
+     "end": 1.12
+    },
+    {
+     "id": "w06-003",
+     "text": "runs",
+     "start": 1.2,
+     "end": 1.44
+    },
+    {
+     "id": "w06-004",
+     "text": "through",
+     "start": 1.52,
+     "end": 1.6
+    },
+    {
+     "id": "w06-005",
+     "text": "the",
+     "start": 1.68,
+     "end": 1.84
+    },
+    {
+     "id": "w06-006",
+     "text": "same",
+     "start": 1.92,
+     "end": 2.16
+    },
+    {
+     "id": "w06-007",
+     "text": "pipeline.",
+     "start": 2.24,
+     "end": 3.4
+    },
+    {
+     "id": "w06-008",
+     "text": "Pi",
+     "start": 3.44,
+     "end": 3.68
+    },
+    {
+     "id": "w06-009",
+     "text": "hosts",
+     "start": 3.76,
+     "end": 4.08
+    },
+    {
+     "id": "w06-010",
+     "text": "the",
+     "start": 4.16,
+     "end": 4.24
+    },
+    {
+     "id": "w06-011",
+     "text": "agent",
+     "start": 4.32,
+     "end": 4.56
+    },
+    {
+     "id": "w06-012",
+     "text": "loop",
+     "start": 4.64,
+     "end": 4.96
+    },
+    {
+     "id": "w06-013",
+     "text": "and",
+     "start": 5.04,
+     "end": 5.12
+    },
+    {
+     "id": "w06-014",
+     "text": "the",
+     "start": 5.2,
+     "end": 5.28
+    },
+    {
+     "id": "w06-015",
+     "text": "tools.",
+     "start": 5.36,
+     "end": 6.36
+    },
+    {
+     "id": "w06-016",
+     "text": "Nemotron",
+     "start": 6.4,
+     "end": 6.96
+    },
+    {
+     "id": "w06-017",
+     "text": "3.5",
+     "start": 7.08,
+     "end": 7.2
+    },
+    {
+     "id": "w06-018",
+     "text": "Super",
+     "start": 7.32,
+     "end": 8.16
+    },
+    {
+     "id": "w06-019",
+     "text": "VL",
+     "start": 8.24,
+     "end": 8.64
+    },
+    {
+     "id": "w06-020",
+     "text": "on",
+     "start": 8.72,
+     "end": 8.88
+    },
+    {
+     "id": "w06-021",
+     "text": "Nebius",
+     "start": 8.92,
+     "end": 9.52
+    },
+    {
+     "id": "w06-022",
+     "text": "makes",
+     "start": 9.6,
+     "end": 9.76
+    },
+    {
+     "id": "w06-023",
+     "text": "the",
+     "start": 9.84,
+     "end": 9.92
+    },
+    {
+     "id": "w06-024",
+     "text": "creative",
+     "start": 10.12,
+     "end": 10.32
+    },
+    {
+     "id": "w06-025",
+     "text": "decisions",
+     "start": 10.44,
+     "end": 11.04
+    },
+    {
+     "id": "w06-026",
+     "text": "and",
+     "start": 11.12,
+     "end": 11.2
+    },
+    {
+     "id": "w06-027",
+     "text": "authors",
+     "start": 11.28,
+     "end": 11.6
+    },
+    {
+     "id": "w06-028",
+     "text": "the",
+     "start": 11.64,
+     "end": 11.68
+    },
+    {
+     "id": "w06-029",
+     "text": "composition.",
+     "start": 11.76,
+     "end": 13.0
+    },
+    {
+     "id": "w06-030",
+     "text": "Media",
+     "start": 13.04,
+     "end": 13.28
+    },
+    {
+     "id": "w06-031",
+     "text": "Tooling",
+     "start": 13.36,
+     "end": 13.76
+    },
+    {
+     "id": "w06-032",
+     "text": "handles",
+     "start": 13.84,
+     "end": 14.16
+    },
+    {
+     "id": "w06-033",
+     "text": "narration,",
+     "start": 14.2,
+     "end": 15.173
+    },
+    {
+     "id": "w06-034",
+     "text": "assembly,",
+     "start": 15.387,
+     "end": 15.64
+    },
+    {
+     "id": "w06-035",
+     "text": "and",
+     "start": 15.68,
+     "end": 15.84
+    },
+    {
+     "id": "w06-036",
+     "text": "delivery",
+     "start": 16.08,
+     "end": 16.32
+    },
+    {
+     "id": "w06-037",
+     "text": "verification.",
+     "start": 17.0,
+     "end": 17.72
+    },
+    {
+     "id": "w06-038",
+     "text": "TTV",
+     "start": 17.76,
+     "end": 18.4
+    },
+    {
+     "id": "w06-039",
+     "text": "supplies",
+     "start": 18.48,
+     "end": 18.88
+    },
+    {
+     "id": "w06-040",
+     "text": "the",
+     "start": 18.96,
+     "end": 19.04
+    },
+    {
+     "id": "w06-041",
+     "text": "reviewed",
+     "start": 19.24,
+     "end": 19.6
+    },
+    {
+     "id": "w06-042",
+     "text": "generated",
+     "start": 19.68,
+     "end": 20.16
+    },
+    {
+     "id": "w06-043",
+     "text": "clips.",
+     "start": 20.24,
+     "end": 21.16
+    },
+    {
+     "id": "w06-044",
+     "text": "HyperFrames",
+     "start": 21.2,
+     "end": 21.92
+    },
+    {
+     "id": "w06-045",
+     "text": "renders",
+     "start": 22.0,
+     "end": 22.32
+    },
+    {
+     "id": "w06-046",
+     "text": "the",
+     "start": 22.4,
+     "end": 22.48
+    },
+    {
+     "id": "w06-047",
+     "text": "editable",
+     "start": 22.56,
+     "end": 22.88
+    },
+    {
+     "id": "w06-048",
+     "text": "motion",
+     "start": 22.96,
+     "end": 23.28
+    },
+    {
+     "id": "w06-049",
+     "text": "graphics.",
+     "start": 23.84,
+     "end": 24.44
+    },
+    {
+     "id": "w06-050",
+     "text": "The",
+     "start": 24.48,
+     "end": 24.56
+    },
+    {
+     "id": "w06-051",
+     "text": "voice",
+     "start": 24.64,
+     "end": 24.96
+    },
+    {
+     "id": "w06-052",
+     "text": "is",
+     "start": 25.04,
+     "end": 25.12
+    },
+    {
+     "id": "w06-053",
+     "text": "eleven_v4",
+     "start": 25.2,
+     "end": 26.88
+    },
+    {
+     "id": "w06-054",
+     "text": "from",
+     "start": 26.96,
+     "end": 27.04
+    },
+    {
+     "id": "w06-055",
+     "text": "Media",
+     "start": 27.12,
+     "end": 27.36
+    },
+    {
+     "id": "w06-056",
+     "text": "Tooling.",
+     "start": 27.44,
+     "end": 28.36
+    },
+    {
+     "id": "w06-057",
+     "text": "There",
+     "start": 28.4,
+     "end": 28.48
+    },
+    {
+     "id": "w06-058",
+     "text": "is",
+     "start": 28.6,
+     "end": 28.72
+    },
+    {
+     "id": "w06-059",
+     "text": "no",
+     "start": 28.8,
+     "end": 28.88
+    },
+    {
+     "id": "w06-060",
+     "text": "music",
+     "start": 28.96,
+     "end": 29.44
+    },
+    {
+     "id": "w06-061",
+     "text": "and",
+     "start": 29.52,
+     "end": 29.68
+    },
+    {
+     "id": "w06-062",
+     "text": "no",
+     "start": 29.8,
+     "end": 29.92
+    },
+    {
+     "id": "w06-063",
+     "text": "sound",
+     "start": 30.0,
+     "end": 30.16
+    },
+    {
+     "id": "w06-064",
+     "text": "effects.",
+     "start": 30.24,
+     "end": 31.28
+    }
+   ]
+  },
+  {
+   "frame": 7,
+   "path": "assets/voice/07.mp3",
+   "duration_s": 4.4,
+   "source": "host",
+   "words": [
+    {
+     "id": "w07-000",
+     "text": "This",
+     "start": 0.0,
+     "end": 0.24
+    },
+    {
+     "id": "w07-001",
+     "text": "video",
+     "start": 0.32,
+     "end": 0.72
+    },
+    {
+     "id": "w07-002",
+     "text": "was",
+     "start": 0.8,
+     "end": 0.96
+    },
+    {
+     "id": "w07-003",
+     "text": "created",
+     "start": 1.04,
+     "end": 1.44
+    },
+    {
+     "id": "w07-004",
+     "text": "using",
+     "start": 1.6,
+     "end": 1.84
+    },
+    {
+     "id": "w07-005",
+     "text": "this",
+     "start": 1.92,
+     "end": 2.16
+    },
+    {
+     "id": "w07-006",
+     "text": "tool.",
+     "start": 2.24,
+     "end": 2.88
+    }
+   ]
+  }
+ ],
+ "sfx": []
+}

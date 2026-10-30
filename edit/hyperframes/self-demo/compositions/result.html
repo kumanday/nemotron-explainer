@@ -1,0 +1,71 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .label {
+      position: absolute;
+      left: 10%;
+      top: 12%;
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .passage {
+      position: absolute;
+      left: 10%;
+      top: 26%;
+      width: 80%;
+      font-size: 28px;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 90%;
+    }
+    .capture {
+      position: absolute;
+      right: 10%;
+      top: 46%;
+      width: 36%;
+      height: 44%;
+      background: #000;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .capture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .clip {
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="result" data-width="1920" data-height="1080">
+    <p id="res-label" class="label clip" data-start="0.1" data-duration="22.58">Finished result - real captures, generated footage, editable graphics</p>
+    <p id="passage" class="passage clip" data-start="0.6" data-duration="22.0">
+      Every beat of this film traces to an actual artifact in this project. The pilot run feeds
+      directly into the submission film, so the demonstration stays grounded in real operation.
+      Narration, composition, review, and render all come from this same workflow.
+    </p>
+    <div id="cap" class="capture clip" data-start="1.6" data-duration="20.0">
+      <img id="cap-img" src="assets/captures/project-view.png" alt="project file capture" />
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#res-label", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo("#passage", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.6);
+    tl.fromTo("#cap", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 1.6);
+    window.__timelines["result"] = tl;
+  </script>
+</template>

@@ -1,0 +1,22 @@
+{
+  "artifact_sha256": "REPLACE_WITH_REAL_SHA256",
+  "generated_footage": [
+    {
+      "result": "rough-cuts/manifests/results/REAL_RESULT.json",
+      "clip_id": "REAL_CLIP_ID",
+      "composition_src": "assets/generated/REAL_CLIP.mp4",
+      "visible_start_s": 0,
+      "visible_end_s": 5
+    }
+  ],
+  "motion_review": {
+    "status": "pending",
+    "reviewer": "nebius-hackathon/nvidia/Nemotron-3.5-Super-VL",
+    "artifact_sha256": "REPLACE_WITH_REAL_SHA256",
+    "notes": "edit/hyperframes/self-demo-v2/REVIEW.md",
+    "sequences": [
+      {"start_s": 0, "end_s": 4, "images": ["REAL_1.png", "REAL_2.png", "REAL_3.png"], "explanation": "Describe the visible transformation and the idea it explains."},
+      {"start_s": 5, "end_s": 9, "images": ["REAL_4.png", "REAL_5.png", "REAL_6.png"], "explanation": "Describe another actual explanatory motion sequence."}
+    ]
+  }
+}

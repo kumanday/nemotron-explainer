@@ -1,0 +1,87 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .label {
+      position: absolute;
+      left: 10%;
+      top: 6%;
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .parts {
+      position: absolute;
+      left: 10%;
+      top: 16%;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .part {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .num {
+      font-size: 32px;
+      color: var(--accent);
+      font-weight: 700;
+      width: 44px;
+      flex-shrink: 0;
+    }
+    .txt {
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .clip {
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="howmade" data-width="1920" data-height="1080">
+    <p id="hm-label" class="label clip" data-start="0.1" data-duration="31.1">How this film was made - accurate component roles</p>
+    <div id="p1" class="part clip" data-start="0.5" data-duration="5.0">
+      <span class="num">1</span>
+      <p class="txt">Pi hosts the agent loop, tools, sessions, and route evidence.</p>
+    </div>
+    <div id="p2" class="part clip" data-start="6.0" data-duration="5.0">
+      <span class="num">2</span>
+      <p class="txt">Nemotron 3.5 Super VL on Nebius makes creative decisions and authors the composition.</p>
+    </div>
+    <div id="p3" class="part clip" data-start="11.5" data-duration="5.0">
+      <span class="num">3</span>
+      <p class="txt">Media Tooling narrates (eleven_v4), assembles, and verifies delivery.</p>
+    </div>
+    <div id="p4" class="part clip" data-start="17.0" data-duration="5.0">
+      <span class="num">4</span>
+      <p class="txt">TTV supplies the reviewed generated clips; HyperFrames renders motion graphics.</p>
+    </div>
+    <div id="p5" class="part clip" data-start="22.5" data-duration="5.0">
+      <span class="num">5</span>
+      <p class="txt">No music, no sound effects. Rendered locally; no cloud profile.</p>
+    </div>
+    <div id="p6" class="part clip" data-start="28.0" data-duration="3.0">
+      <span class="num">6</span>
+      <p class="txt">The footage pixels and narrator voice come from their providers; Nemotron directs the workflow.</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hm-label", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo("#p1", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 0.5);
+    tl.fromTo("#p2", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 6.0);
+    tl.fromTo("#p3", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 11.5);
+    tl.fromTo("#p4", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 17.0);
+    tl.fromTo("#p5", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 22.5);
+    tl.fromTo("#p6", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 28.0);
+    window.__timelines["howmade"] = tl;
+  </script>
+</template>

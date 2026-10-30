@@ -1,0 +1,5 @@
+#!/bin/zsh
+set -eu
+demo_root=${0:A:h:h}
+exec python3 /Users/magos/dev/media-tooling/.agents/skills/media-motion-graphics/scripts/ttv_round.py \
+  "$@" --project "$demo_root" --ttv-checkout /Users/magos/dev/kumanday/ttv-pipeline

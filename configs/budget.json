@@ -1,0 +1,10 @@
+{
+  "currency": "USD",
+  "media_total_authorized": 100,
+  "scope": "This hackathon submission: generated footage, keyframe images, narration and any explicitly requested audio",
+  "authorization": "User approved $100 total media budget in this chat on 2026-10-29, America/Bogota",
+  "nebius_inference": "Tracked separately; report actual usage and pricing assumptions. Do not invent a total inference spending limit.",
+  "unknown_media_costs": "Check current provider rates and record a conservative quote before execution. Unknown actual USD remains null. If no credible ceiling can be established, ask before that operation.",
+  "planning_policy": "Reserve for all requested operations and previous attempts against the cumulative $100, not $100 per job. Reconcile quotes and known charges before each approval.",
+  "publication": "Prepare local files and drafts; public repository creation, uploads and submission await user authorization."
+}

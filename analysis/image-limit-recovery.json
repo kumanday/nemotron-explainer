@@ -1,0 +1,24 @@
+{
+  "run_id": "image-recovery-0c49119592ea",
+  "passed": true,
+  "checks": {
+    "pi_exit_zero": true,
+    "original_session_unchanged": true,
+    "over_limit_history_exercised": true,
+    "sent_at_most_eight": true,
+    "omission_recorded": true,
+    "expected_route": true,
+    "clean_final_stop": true,
+    "expected_response": true,
+    "production_tools_not_executed": true
+  },
+  "request_images": [
+    {
+      "before": 17,
+      "sent": 8,
+      "omitted": 9
+    }
+  ],
+  "estimated_inference_cost_usd": 0.038161499999999994,
+  "private_diagnostics": ".pi/smoke/image-recovery-0c49119592ea"
+}

@@ -1,0 +1,67 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .node {
+      position: absolute;
+      width: 450px;
+      height: 220px;
+      top: 430px;
+      border: 4px solid var(--accent);
+      border-radius: 16px;
+      background: var(--panel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      text-align: center;
+      padding: 12px;
+      opacity: 0;
+    }
+    .arrow {
+      position: absolute;
+      top: 540px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 3px;
+      transform-origin: left center;
+      scaleX: 0;
+      opacity: 0;
+    }
+    .label {
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="pipeline" data-width="1920" data-height="1080">
+    <div class="node clip" data-start="0" data-duration="5.8" id="n1" style="left:120px;">
+      <span class="label" id="l1">Brief</span>
+    </div>
+    <div class="arrow clip" data-start="0.4" data-duration="5.4" id="a1" style="left:570px;width:165px;"></div>
+    <div class="node clip" data-start="0.8" data-duration="5.0" id="n2" style="left:735px;">
+      <span class="label" id="l2">Storyboard</span>
+    </div>
+    <div class="arrow clip" data-start="1.2" data-duration="4.6" id="a2" style="left:1185px;width:165px;"></div>
+    <div class="node clip" data-start="1.84" data-duration="3.96" id="n3" style="left:1350px;">
+      <span class="label" id="l3">Render</span>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#n1", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, 0);
+    tl.fromTo("#l1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#a1", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 0.4);
+    tl.fromTo("#n2", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, 0.8);
+    tl.fromTo("#l2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.9);
+    tl.fromTo("#a2", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 1.2);
+    tl.fromTo("#n3", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 1.84);
+    tl.fromTo("#l3", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 1.95);
+    window.__timelines["pipeline"] = tl;
+  </script>
+</template>

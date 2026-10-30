@@ -1,0 +1,57 @@
+{
+  "project": "nemotron-explainer",
+  "recorded_at": "2026-10-30",
+  "purpose": "Record production route, tool versions and budget before film production. No credentials included.",
+  "provider": {
+    "provider_id": "nebius-hackathon",
+    "model_id": "nvidia/Nemotron-3.5-Super-VL",
+    "base_url": "https://api.tokenfactory.us-north1.nebius.com/v1/",
+    "api": "openai-completions",
+    "api_key_env": "NEBIUS_API_KEY",
+    "reasoning": true,
+    "input": ["text", "image"],
+    "cost_estimate_usd_per_million": {"input": 0.3, "output": 0.9, "cache_read": 0.3, "cache_write": 0.3},
+    "context_window": 262144,
+    "max_tokens": 32768
+  },
+  "pi_settings": {
+    "default_provider": "nebius-hackathon",
+    "default_model": "nvidia/Nemotron-3.5-Super-VL",
+    "default_thinking_level": "high",
+    "session_dir": ".pi/sessions",
+    "default_tools": ["read", "bash", "edit", "write"]
+  },
+  "tool_versions": {
+    "pi_cli": "1.1.0",
+    "hyperframes_cli": "0.8.142",
+    "media_tooling_source": "daa6482597ba418fd0aeee504cf78f2ecba5cdde",
+    "ttv_pipeline_source": "078107e401c2602ec77e9a15ef095ada9b8257cd"
+  },
+  "commands_present": {
+    "pi": true, "uv": true, "node": true, "ffmpeg": true, "ffprobe": true,
+    "hyperframes": true, "media-generated": true, "media-tts": true, "media-tts-frames": true,
+    "media-contact-sheet": true, "media-timeline-view": true, "media-verify": true
+  },
+  "credentials_present": {
+    "NEBIUS_API_KEY": true, "FAL_API_KEY": true, "ELEVENLABS_API_KEY": true,
+    "ELEVENLABS_VOICE_ID_EN": true
+  },
+  "bootstrap_smoke": {
+    "run_id": "smoke-9e45ad242068",
+    "passed": true,
+    "provider_requests": 3,
+    "estimated_inference_cost_usd": 0.0015855
+  },
+  "validate_bootstrap": {"passed": true, "tasks": 4},
+  "doctor": {"passed": true},
+  "media_budget": {
+    "currency": "USD",
+    "authorized_total": 100,
+    "scope": "Paid footage, keyframe images and narration for this submission",
+    "known_media_charges_usd": 0,
+    "reserved_media_quotes_usd": 0,
+    "status": "No media operations executed yet"
+  },
+  "rendering": "local only; no cloud-render profile or GCP target selected",
+  "deadline_america_bogota": "2026-10-30T12:00:00-05:00"
+}

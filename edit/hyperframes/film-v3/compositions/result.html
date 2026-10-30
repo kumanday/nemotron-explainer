@@ -1,0 +1,26 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #player{position:absolute;inset:0;width:100%;height:100%;background:#0b121c;border:2px solid #243142;box-sizing:border-box;}
+    #full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    #lower{position:absolute;left:0;right:0;bottom:0;height:110px;background:rgba(10,14,20,0.9);border-top:1px solid #243142;display:flex;align-items:center;padding:0 160px;box-sizing:border-box;opacity:0;}
+    #lower .chip{font-size:30px;font-weight:800;color:#f2f5f8;background:#131a24;border:1px solid #243142;padding:10px 20px;border-radius:8px;margin-right:24px;}
+    #lower .line{font-size:30px;color:#8d9bb0;}
+  </style>
+  <div id="root" data-composition-id="result" data-width="1920" data-height="1080">
+    <div id="player">
+      <video id="full" src="assets/tidepool-r7.mp4" data-start="0" data-duration="8" muted playsinline></video>
+    </div>
+    <div id="lower">
+      <div class="chip">Final · round 7 · 8.0 s</div>
+      <div class="line">inference tracked separately</div>
+    </div>
+  </div>
+  <script>
+    /* @cues frame=7 */ const CUE = {"result": 1.84, "hold": 7.84}; const SCENE_END = 8.14; /* @end-cues */
+    const tl=gsap.timeline({paused:true});
+    // the final render plays from the scene start (8 s fill the 8.04 s scene)
+    tl.fromTo("#lower",{y:20,opacity:0},{y:0,opacity:1,duration:0.5,ease:"power2.out"},CUE.hold);
+    window.__timelines["result"]=tl;
+  </script>
+</template>

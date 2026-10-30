@@ -1,0 +1,103 @@
+<html
+  data-composition-variables='[
+    {"id":"bg","type":"color","label":"Background","default":"#0b0f19"},
+    {"id":"panel","type":"color","label":"Panel","default":"#111827"},
+    {"id":"accent","type":"color","label":"Accent","default":"#22d3ee"},
+    {"id":"text","type":"color","label":"Text","default":"#f8fafc"},
+    {"id":"muted","type":"color","label":"Muted","default":"#94a3b8"}
+  ]'
+>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="91.04"
+      data-width="1920"
+      data-height="1080"
+      style="position:absolute;inset:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;"
+    >
+      <div
+        id="hook"
+        data-composition-id="hook"
+        data-composition-src="compositions/hook.html"
+        data-start="0"
+        data-duration="5.28"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="input"
+        data-composition-id="input"
+        data-composition-src="compositions/input.html"
+        data-start="5.28"
+        data-duration="8.88"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="build"
+        data-composition-id="build"
+        data-composition-src="compositions/build.html"
+        data-start="14.16"
+        data-duration="9.6"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="revise"
+        data-composition-id="revise"
+        data-composition-src="compositions/revise.html"
+        data-start="23.76"
+        data-duration="11.2"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="result"
+        data-composition-id="result"
+        data-composition-src="compositions/result.html"
+        data-start="34.96"
+        data-duration="22.08"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="howmade"
+        data-composition-id="howmade"
+        data-composition-src="compositions/howmade.html"
+        data-start="57.04"
+        data-duration="31.2"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="claim"
+        data-composition-id="claim"
+        data-composition-src="compositions/claim.html"
+        data-start="88.24"
+        data-duration="2.8"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <audio id="voice-1" src="assets/voice/01.mp3" data-start="0" data-duration="5.28"></audio>
+      <audio id="voice-2" src="assets/voice/02.mp3" data-start="5.28" data-duration="8.88"></audio>
+      <audio id="voice-3" src="assets/voice/03.mp3" data-start="14.16" data-duration="9.6"></audio>
+      <audio id="voice-4" src="assets/voice/04.mp3" data-start="23.76" data-duration="11.2"></audio>
+      <audio id="voice-5" src="assets/voice/05.mp3" data-start="34.96" data-duration="22.08"></audio>
+      <audio id="voice-6" src="assets/voice/06.mp3" data-start="57.04" data-duration="31.2"></audio>
+      <audio id="voice-7" src="assets/voice/07.mp3" data-start="88.24" data-duration="2.8"></audio>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

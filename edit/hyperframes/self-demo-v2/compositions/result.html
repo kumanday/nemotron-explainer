@@ -1,0 +1,78 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .bar-track {
+      position: absolute;
+      left: 10%;
+      bottom: 22%;
+      width: 80%;
+      height: 12px;
+      background: #1f2937;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .bar {
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform-origin: left center;
+      scaleX: 0;
+      box-shadow: 0 0 20px var(--accent);
+    }
+    .number {
+      position: absolute;
+      left: 10%;
+      top: 28%;
+      font-size: 130px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      opacity: 0;
+    }
+    .passage-part1 {
+      position: absolute;
+      left: 10%;
+      top: 56%;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 80%;
+      color: var(--muted);
+      opacity: 0;
+    }
+    .passage-part2 {
+      position: absolute;
+      left: 10%;
+      top: 66%;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 80%;
+      color: var(--muted);
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="result" data-width="1920" data-height="1080">
+    <div class="bar-track">
+      <div class="bar clip" data-start="0" data-duration="15.32" id="bar"></div>
+    </div>
+    <div class="number clip" data-start="2.0" data-duration="13.32" id="number">91 s</div>
+    <div class="passage-part1 clip" data-start="4.0" data-duration="7.0" id="p1">A coherent passage, synced to the word timings.</div>
+    <div class="passage-part2 clip" data-start="11.0" data-duration="4.32" id="p2">Every beat traces to an actual artifact.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#bar", { scaleX: 0 }, { scaleX: 1, duration: 1.8, ease: "power2.out" }, 0.4);
+    tl.fromTo("#bar", { scaleX: 1 }, { scaleX: 0.92, duration: 0.5, ease: "power2.inOut", yoyo: true, repeat: 1 }, 2.4);
+    tl.fromTo("#number", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 2.0);
+    tl.fromTo("#p1", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 4.0);
+    tl.fromTo("#p2", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 11.0);
+    window.__timelines["result"] = tl;
+  </script>
+</template>

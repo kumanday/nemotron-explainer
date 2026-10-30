@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .card {
+      position: absolute;
+      left: 10%;
+      top: 40%;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .claim {
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+    }
+    .credits {
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+      max-width: 90%;
+    }
+    .credits b {
+      color: var(--text);
+    }
+    .clip {
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="claim" data-width="1920" data-height="1080">
+    <div id="claim-card" class="card">
+      <p id="claim-text" class="claim clip" data-start="0.2" data-duration="4.0">This video was created using this tool.</p>
+      <p id="credits" class="credits clip" data-start="1.2" data-duration="1.6">
+        Pi - Nemotron 3.5 Super VL (Nebius) - Media Tooling - TTV - HyperFrames - eleven_v4 narration
+      </p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#claim-text", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }, 0.2);
+    tl.fromTo("#credits", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.2);
+    window.__timelines["claim"] = tl;
+  </script>
+</template>

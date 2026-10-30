@@ -1,0 +1,83 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 140px;
+      box-sizing: border-box;
+    }
+    .kicker {
+      position: absolute;
+      top: 14%;
+      left: 10%;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+    .list {
+      position: relative;
+      top: 26%;
+      left: 10%;
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.7;
+      max-width: 82%;
+    }
+    .item {
+      opacity: 0;
+      y: 20;
+      margin-bottom: 18px;
+    }
+    .item .role {
+      font-weight: 400;
+      font-size: 26px;
+      color: var(--muted);
+      display: block;
+      margin-top: 6px;
+    }
+  </style>
+  <div id="root" data-composition-id="howmade" data-width="1920" data-height="1080">
+    <div class="kicker clip" data-start="0" data-duration="31.4">How this film was made</div>
+    <div class="list clip" data-start="0.6" data-duration="30.8">
+      <div class="item clip" data-start="0.6" data-duration="4.4" id="i1">
+        Pi<span class="role">hosts the agent loop and the tools</span>
+      </div>
+      <div class="item clip" data-start="4.6" data-duration="4.4" id="i2">
+        Nemotron 3.5 Super VL<span class="role">on Nebius — creative decisions, authors the composition</span>
+      </div>
+      <div class="item clip" data-start="8.6" data-duration="4.4" id="i3">
+        Media Tooling<span class="role">narration, assembly, and delivery verification</span>
+      </div>
+      <div class="item clip" data-start="12.6" data-duration="4.4" id="i4">
+        TTV<span class="role">supplies the reviewed generated clips</span>
+      </div>
+      <div class="item clip" data-start="16.6" data-duration="4.4" id="i5">
+        HyperFrames<span class="role">renders the editable motion graphics</span>
+      </div>
+      <div class="item clip" data-start="20.6" data-duration="4.4" id="i6">
+        eleven_v4<span class="role">voice from Media Tooling</span>
+      </div>
+      <div class="item clip" data-start="24.6" data-duration="4.4" id="i7">
+        No music<span class="role">and no sound effects</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".kicker", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+    ["i1","i2","i3","i4","i5","i6","i7"].forEach(function(id, i){
+      tl.fromTo("#"+id, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.6 + i * 4.0);
+    });
+    window.__timelines["howmade"] = tl;
+  </script>
+</template>

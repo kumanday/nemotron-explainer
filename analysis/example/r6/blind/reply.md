@@ -1,0 +1,174 @@
+```json
+{
+  "inventory": [
+    {
+      "time_s": 0.5,
+      "objects": [
+        "Full-bleed tide-pool footage: clear water, rocks, sea anemones, kelp/seaweed, rippling surface, golden hour lighting"
+      ],
+      "text": []
+    },
+    {
+      "time_s": 1.5,
+      "objects": [
+        "Full-bleed tide-pool footage: clear water, rocks, sea anemones, kelp/seaweed, rippling surface, golden hour lighting"
+      ],
+      "text": []
+    },
+    {
+      "time_s": 2.6,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame rising from bottom edge, displaying tide-pool footage on screen, approx x=390-960, y=350-1020",
+        "Small sand-colored dot at approx x=1150, y=500 (start of tide curve animation)"
+      ],
+      "text": []
+    },
+    {
+      "time_s": 3.4,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame, approx x=390-960, y=140-840, displaying tide-pool footage",
+        "Teal tide-curve line drawing left to right, approx x=1130-1280",
+        "Sand-colored dot at end of curve segment"
+      ],
+      "text": []
+    },
+    {
+      "time_s": 4.2,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame, approx x=390-960, y=140-840, displaying tide-pool footage",
+        "Teal tide-curve line extending further right, approx x=1130-1640",
+        "Sand-colored dot at end of curve"
+      ],
+      "text": []
+    },
+    {
+      "time_s": 5.2,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame, approx x=390-960, y=140-840, displaying tide-pool footage"
+      ],
+      "text": [
+        "Low tide 4:12 PM (sand color, approx x=1130, y=440)"
+      ]
+    },
+    {
+      "time_s": 6.4,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame, approx x=390-960, y=140-840, displaying tide-pool footage"
+      ],
+      "text": [
+        "Low tide 4:12 PM (sand color, approx x=1130, y=440)",
+        "Know the tide before you go. (white, approx x=1100, y=550-750)",
+        "Tidepool (teal #5fd4c4, approx x=1100, y=780)",
+        "Free on iOS and Android (smaller white/gray, approx x=1100, y=850)"
+      ]
+    },
+    {
+      "time_s": 7.6,
+      "objects": [
+        "Deep navy background (#06202b)",
+        "Smartphone with navy frame, approx x=390-960, y=140-840, displaying tide-pool footage"
+      ],
+      "text": [
+        "Low tide 4:12 PM (sand color, approx x=1130, y=440)",
+        "Know the tide before you go. (white, approx x=1100, y=550-750)",
+        "Tidepool (teal #5fd4c4, approx x=1100, y=780)",
+        "Free on iOS and Android (smaller white/gray, approx x=1100, y=850)"
+      ]
+    }
+  ],
+  "brief_check": [
+    {
+      "requirement": "Open full-bleed on tide-pool clip 0.0-2.6s",
+      "status": "present",
+      "evidence": "frame t=0.5: Full-bleed tide-pool footage; frame t=1.5: Full-bleed tide-pool footage"
+    },
+    {
+      "requirement": "Thin horizon of light sweeps once across frame during 0.0-2.6s",
+      "status": "missing",
+      "evidence": "frame t=0.5: No light sweep visible; frame t=1.5: No light sweep visible"
+    },
+    {
+      "requirement": "Footage shrinks into phone screen rising from bottom edge 2.6-5.2s",
+      "status": "present",
+      "evidence": "frame t=2.6: Phone at bottom edge; frame t=3.4: Phone risen to y=140-840"
+    },
+    {
+      "requirement": "Tide curve draws left to right across six hours",
+      "status": "present",
+      "evidence": "frame t=3.4: Teal curve segment; frame t=4.2: Extended teal curve"
+    },
+    {
+      "requirement": "Dot rides curve to next low tide",
+      "status": "present",
+      "evidence": "frame t=3.4: Dot on curve; frame t=4.2: Dot at curve end"
+    },
+    {
+      "requirement": "Labelled 'Low tide 4:12 PM'",
+      "status": "present",
+      "evidence": "frame t=5.2: Low tide 4:12 PM"
+    },
+    {
+      "requirement": "Headline 'Know the tide before you go.' lands beside phone 5.2-8.0s",
+      "status": "present",
+      "evidence": "frame t=6.4: Know the tide before you go.; frame t=7.6: Know the tide before you go."
+    },
+    {
+      "requirement": "Wordmark 'Tidepool'",
+      "status": "present",
+      "evidence": "frame t=6.4: Tidepool; frame t=7.6: Tidepool"
+    },
+    {
+      "requirement": "Line 'Free on iOS and Android'",
+      "status": "present",
+      "evidence": "frame t=6.4: Free on iOS and Android; frame t=7.6: Free on iOS and Android"
+    },
+    {
+      "requirement": "Everything settles and holds still for final second",
+      "status": "present",
+      "evidence": "frame t=7.6: All elements static and settled"
+    },
+    {
+      "requirement": "Phone about 60% of frame height, never cropped",
+      "status": "wrong",
+      "evidence": "frame t=2.6: Phone touches bottom frame edge (y=1020 of 1080), violating never-cropped rule"
+    },
+    {
+      "requirement": "Nothing touches frame edges except opening footage",
+      "status": "wrong",
+      "evidence": "frame t=2.6: Smartphone touches bottom frame edge"
+    }
+  ],
+  "scores": {
+    "Engagement": 4,
+    "Prompt-Intent": 3,
+    "Composition": 4,
+    "Temporal": 4,
+    "Craft": 5
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "axis": "content",
+      "severity": "major",
+      "time_s": 0.5,
+      "region": {"x": 0, "y": 0, "w": 1920, "h": 1080},
+      "saw": "No thin horizon of light sweeping across the opening tide-pool footage",
+      "suggested_fix": "Add a thin horizontal light sweep across the full-bleed footage during 0.0-2.6s"
+    },
+    {
+      "id": "F2",
+      "axis": "layout",
+      "severity": "major",
+      "time_s": 2.6,
+      "region": {"x": 390, "y": 350, "w": 570, "h": 670},
+      "saw": "Smartphone touches/crosses the bottom frame edge",
+      "suggested_fix": "Keep the phone fully clear of all frame edges; add margin at bottom"
+    }
+  ]
+}
+```

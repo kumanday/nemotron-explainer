@@ -1,0 +1,33 @@
+diff --git a/edit/hyperframes/tidepool-loop/index.html b/edit/hyperframes/tidepool-loop/index.html
+new file mode 100644
+--- /dev/null
++++ b/edit/hyperframes/tidepool-loop/index.html
+@@ -0,0 +1,18 @@
++<html data-composition-variables='[]'>
++  <head><meta charset="utf-8"></head>
++  <body>
++    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1920" data-height="1080" style="position:absolute;inset:0;background:#06202b;color:#e8f4f2;">
++      <div id="tidepool" data-composition-id="tidepool" data-composition-src="compositions/tidepool.html" data-start="0" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
++    </div>
++    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
++    <script>window.__timelines["main"]=gsap.timeline({paused:true});</script>
++  </body>
++</html>
+diff --git a/edit/hyperframes/tidepool-loop/compositions/tidepool.html b/edit/hyperframes/tidepool-loop/compositions/tidepool.html
+new file mode 100644
+--- /dev/null
++++ b/edit/hyperframes/tidepool-loop/compositions/tidepool.html
+@@ -0,0 +1,119 @@
++<template>
++  <style>#root{position:absolute;inset:0;background:#06202b;overflow:hidden;} ...</style>
++  <div id="root" data-composition-id="tidepool" data-width="1920" data-height="1080">
++    <video class="video-full clip" id="full" src="assets/tidepool.mp4" data-start="0" data-duration="2.6" muted playsinline></video>
++    ...phone rises from bottom edge, tide curve draws, headline lands...
++  </div>
++  <script>
++    const tl=gsap.timeline({paused:true});
++    tl.fromTo(".phone",{y:"110%"},{y:0,duration:1.15,ease:"expo.out"},2.4);
++    ...
++    window.__timelines["tidepool"]=tl;
++  </script>
++</template>

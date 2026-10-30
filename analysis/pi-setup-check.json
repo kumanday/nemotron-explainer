@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "pi_version": "1.1.0",
+  "required_skills": [
+    "hybrid-explainer",
+    "media-motion-graphics",
+    "media-tts",
+    "hyperframes",
+    "hyperframes-core",
+    "hyperframes-creative",
+    "hyperframes-animation",
+    "hyperframes-registry",
+    "hyperframes-cli"
+  ],
+  "missing_skills": [],
+  "production_system_prompt_loaded": true,
+  "project_extension_loaded": true,
+  "extension_errors": [],
+  "limitation": "Discovery advertises skills; the production prompt explicitly requires their full reads."
+}

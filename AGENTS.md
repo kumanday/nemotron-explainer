@@ -1,0 +1,178 @@
+<!-- media-tooling:init:start -->
+# Media Tooling Project Context
+
+Treat this directory as `$PROJECT_DIR` and keep project artifacts inside it.
+
+Read these central media-tooling skills before routing media-processing work:
+- /Users/magos/dev/media-tooling/.agents/skills/media-corpus-ingest/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-subtitle-pipeline/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-rough-cut-assembly/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-render-pipeline/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-motion-graphics/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-tts/SKILL.md
+- /Users/magos/dev/media-tooling/.agents/skills/media-teleprompter/SKILL.md
+
+Use installed toolkit commands from this project directory:
+- spoken media: `media-subtitle` or `media-batch-subtitle`
+- narration/TTS: `media-tts` (one file) or `media-tts-frames` (per-frame clips, word timings and `audio_meta.json` for HyperFrames workflows)
+- teleprompter for recording a script to camera on a reference take's timing: `media-teleprompter`
+- optional score and sound effects for a finished video, only when requested: `media-video-music`
+- silent or visual-first video: `media-contact-sheet` or `media-batch-contact-sheet`
+- rough-cut assembly: `media-rough-cut`
+- burn subtitles: `media-burn-subtitles` or `media-batch-burn-subtitles`
+- translate subtitles: `media-translate-subtitles`
+- pack transcript for reasoning: `media-pack-transcript`
+- timeline visual drill-down: `media-timeline-view`
+- EDL-driven render: `media-edl-render`
+- Resolve/FCPXML layer export: `media-fcpxml-export`
+- color grading: `media-grade`
+- loudness normalization: `media-loudnorm`
+- output verification: `media-verify`
+- generated-media requests, review and import: `media-generated`
+- optional HTML-rendered video and motion overlays: `hyperframes`
+- cloud rendering of a HyperFrames project on Google Cloud Run, billed to the GCP project its render profile names: `media-cloud-render` (`which` shows the profile and account before anything runs)
+
+Operational defaults:
+- use sequential processing to reduce resource contention. Have patience for long media jobs
+- use `--skip-existing` for resumable batches
+- keep `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID_EN` in the environment, never in project files
+- synthesize all narration with `media-tts` or `media-tts-frames` (default model `eleven_v4`), including inside upstream HyperFrames workflows; do not write project-local TTS scripts or call the TTS API directly, and if a command lacks something a workflow needs, extend media-tooling instead
+- after installing or upgrading the toolkit, run `media-tooling-link-skills` (so agents discover the `media-*` skills) and re-run `media-tooling-init --agents-only` so these skill paths stay current; see the toolkit's `docs/INSTALL.md`
+
+TTV generated-media workflow:
+- keep approved editorial storyboards and stable scene IDs in `storyboards/`
+- export reviewed motion-graphics scenes using the handoff in `docs/generated-media.md`; archive visual review evidence and existing provider spending permission with the storyboard revision
+- for narrated films that combine generated shots, real captures and a voice clone, follow `media-motion-graphics/references/generated-film-playbook.md` and its `scripts/`
+- use `media-generated request`, review the returned plan, and record exact approved variants with `approve` before submitting paid work
+- exchange immutable documents through `send --server` or `send --handoff`; import results with an explicit asset root or allowed delivery origins
+- use `select` to freeze takes, trims and EDL, then `render` to run the existing renderer and verifier with provenance records
+- use `select --edl-options` for portrait `reframe`, transcripts, overlays, subtitles and grading; use imported generated clips as HyperFrames content layers
+- use new revisions for edits, regenerate only affected scenes, and explicitly resolve stale continuity decisions
+- keep transient signed delivery URLs separate from durable manifests and credentials out of documents
+
+Optional Hyperframes workflow:
+- use `hyperframes` for HTML-rendered video, animated overlays, title cards, kinetic captions, website/UI captures, GIFs, PNG sequences, batch variants, or standalone graphic segments
+- keep composition source and working renders under `$PROJECT_DIR/edit/hyperframes/<slot>/`; write each finished standalone video to `$PROJECT_DIR/renders/<slot>.mp4` (or the project root) so it is easy to find
+- route reference-led motion graphics, storyboard alternatives, scene stills, and director notes through `media-motion-graphics`, which uses the current upstream HyperFrames skills
+- use upstream branded storyboard sketches before animation and composition snapshots plus a draft encode after building; carry reviewed layouts into motion
+- default to revision review; explicit autonomous requests select auto review with multimodal storyboard feedback and bounded corrections, recorded in BRIEF.md
+- use transparent composition backgrounds and verify encoded alpha; prefer MOV when WebM alpha is unavailable
+- in upstream HyperFrames workflows (`faceless-explainer`, `product-launch-video` and others), produce the narration step's `audio_meta.json` with `media-tts-frames` instead of the workflow's own TTS providers, then run the workflow's duration sync
+- use `hyperframes lint .` while editing and `hyperframes check . --snapshots --at-transitions` before using the render
+- render long compositions with `media-cloud-render render <slot>` instead of a local `hyperframes render` when a profile stack is deployed; profiles live in the private `~/.config/media-tooling/profiles.toml`, a project pins one with `profile` in `media-tooling.toml`, and `deploy`/`destroy` create or remove billable resources only after confirmation
+- render alpha overlays with `hyperframes render . --format mov`; WebM is an option after verifying local alpha support
+- add rendered overlays to EDL specs with `overlays[].source`; `media-edl-render` composites overlays before burning subtitles
+- keep using media-tooling commands for ASR, contact sheets, packed transcripts, EDL assembly, grading, loudness normalization, subtitle burning, and `media-verify`
+- do not use Hyperframes for ordinary cuts, static cards that the EDL renderer can generate, transcript work, or final verification
+
+Private rules: when a local profile applies to this project, `media-tooling-init` adds a separate "Private rules"
+block after this one. Follow it; it comes from the owner's local configuration, not from the toolkit.
+
+## Session Memory Protocol
+
+Persist shared strategy, decisions, and reasoning across sessions in `edit/project.md`.
+For independent motion-graphics pilots, keep references, directions, review scope,
+and decisions in the composition slot (`DECISIONS.md`). Honor exclusions of prior
+project context and read only that slot's records on resume.
+
+On startup, within the permitted context scope, read `edit/project.md` and summarize the last session in one sentence to re-establish context.
+
+After each session, append a timestamped entry to `edit/project.md` using this format:
+
+```
+## Session YYYY-MM-DD
+
+### Strategy
+Current approach and goals for this project.
+
+### Decisions
+Key choices made and their rationale.
+
+### Reasoning log
+Significant inference chains or trade-off evaluations.
+
+### Outstanding items
+Unfinished work, open questions, or next actions.
+```
+
+## Hard Rules (non-negotiable for broadcast-quality output)
+
+These 12 production rules are enforced by code guardrails and must never be violated:
+
+1. **Subtitles applied last in filter chain** — Overlays hide captions if subtitles are burned before compositing. Always apply the subtitles filter as the final step.
+2. **Per-segment extract + lossless concat** — Never use a single-pass filtergraph for multi-segment assembly. Extract each segment independently, then concat with the demuxer.
+3. **30ms audio fades at every segment boundary** — Hard cuts produce audible pops. Always apply 30ms fade-in/fade-out at segment join points.
+4. **Overlay PTS shift** — Use `setpts=PTS-STARTPTS+T/TB` so overlay frame 0 lands at the overlay window start time, not the container start.
+5. **Master SRT uses output-timeline offsets** — Compute `output_time = word.start - segment_start + segment_offset`. Never use source-timeline offsets in the final SRT.
+6. **Never cut inside a word** — Cut points must land on word boundaries (inter-word silence gaps). Mid-word cuts produce garbled audio.
+7. **Pad cut edges (30-200ms working window)** — Absorb 50-100ms timestamp drift by padding each cut edge with 30-200ms of surrounding context.
+8. **Word-level verbatim ASR only** — Never use phrase-mode SRT generation. Word-level timestamps are required for accurate cut-point selection.
+9. **Cache transcripts** — Never re-transcribe unless the source file has changed. Check modification timestamps before re-running.
+10. **Worker context isolation for animations** — When the harness supports workers, use them to isolate animation-slot scratch context and compact handoffs. Run media-heavy worker tasks sequentially.
+11. **Strategy confirmation before execution** — Use a confirmed editing strategy or explicit autonomous production scope; autonomous mode reviews storyboards visually and does not authorize publication.
+12. **All outputs in project directory, never clobber source** — Write all generated files into `$PROJECT_DIR`. Never overwrite or modify source media files.
+
+## Anti-patterns (things that consistently fail)
+
+Avoid these 13 patterns — they have been proven to produce broken or low-quality output:
+
+1. **Hierarchical pre-computed codec formats** — Intermediate ProRes files balloon storage and add re-encode generational loss. Use stream-copy or lossless concat instead.
+2. **Hand-tuned moment-scoring functions** — Ad-hoc scoring heuristics for "best moments" are brittle and don't generalize. Use LLM-based reasoning on packed transcripts instead.
+3. **Whisper SRT output** — Raw Whisper `.srt` loses sub-second gap data needed for accurate word-boundary editing. Always use the word-level JSON output.
+4. **Running Whisper locally on CPU** — CPU transcription is 10-50x slower than GPU/MLX. Use hardware-accelerated backends whenever available.
+5. **Burning subtitles before compositing overlays** — Violates Hard Rule 1. Overlays will hide or partially obscure burned captions.
+6. **Single-pass filtergraph with overlays** — Violates Hard Rule 2. Multi-source compositing in one filtergraph is fragile and non-debuggable.
+7. **Linear animation easing** — Linear easing looks robotic and amateurish. Always use cubic easing (ease_out_cubic for reveals, ease_in_out_cubic for draws).
+8. **Hard audio cuts (no fade)** — Violates Hard Rule 3. Produces audible clicks/pops at every join point.
+9. **Typing text centered on partial string** — Centering should use the full string bounding box, not character-by-character positioning. Partial-string centering causes misalignment.
+10. **Using workers as parallel media processors** — Violates Hard Rule 10. Workers are for isolating intermediate context, not for increasing concurrent media processing.
+11. **Editing before confirming strategy with user** — Violates Hard Rule 11. Use explicit approval of the editing plan or an autonomous request covering that scope.
+12. **Cutting inside a word** — Violates Hard Rule 6. Always cut at word boundaries to preserve speech clarity.
+13. **Assuming content type** — Never assume a file is "podcast", "interview", etc. Always generalize processing to work for any spoken-media content.
+
+For vertical edits, use EDL `reframe` for source-pixel geometry before draft scaling
+and `transcripts` to map source names to existing JSON transcripts. Preserve
+reviewed SRT copy and timing with `subtitles.rechunk: false`.
+`media-verify` covers duration, internal cut discontinuities/audio pops, and grade.
+Record separate subtitle/overlay visual review and loudness measurements. Contrast
+checks with zero measurements need assembled-frame review, including endpoints.
+<!-- media-tooling:init:end -->
+
+# Nemotron Explainer execution context
+
+Read `STATUS.md`, `RECOVER.md` and `configs/budget.json`. This is an independent hackathon workspace. Project-specific choices:
+
+- Current work is film v3: follow `RECOVER.md`, `storyboards/v3/DIRECTION.md` and
+  the project `.pi/skills/hybrid-explainer/SKILL.md` with its `references/`. v2 is
+  superseded. A passing delivery check is required but does not prove quality.
+
+- Use Pi with `nebius-hackathon/nvidia/Nemotron-3.5-Super-VL` at the exact regional
+  endpoint in `configs/nebius.json`. Never substitute another model silently.
+- The final submission video must itself be produced by this workflow. Retain
+  evidence linking the final script, composition, review and render to its run.
+- EBO, broad benchmarks and new infrastructure are optional after delivery.
+- Local production proceeds autonomously within the defined brief, with real
+  multimodal review. Record `review-mode: auto` in the composition BRIEF and
+  DECISIONS. Skills' human-review defaults yield to this production scope.
+- The authorized media budget is $100 cumulative for this submission. Track
+  reservations and all attempts. Inference is recorded separately. Keep unknown
+  costs explicit and establish a credible ceiling before spending.
+- Render locally. No GCP target or cloud-render profile applies to this workspace.
+  Do not inherit a default media-tooling profile from another project. Before
+  any future GCP work, read this workspace's `.gcp-targets.json` and
+  `/Users/magos/.config/gcp-agents/AGENTS.md` and use `gcp-agent run TARGET`.
+- Keep the existing toolkit checkouts read-only unless a demonstrated blocking
+  issue requires a scoped branch. Use semantic branch prefixes. Do not commit,
+  push, publish, upload or submit without the user's authorization.
+- Credentials live in the environment. Never read/dump `.zshrc`, `.env`, auth
+  stores or whole environments into model context, logs or artifacts. Check
+  presence only. Never pass an API key as a command-line argument.
+- Raw Pi sessions, provider execution logs and generated assets are private.
+  Export only reviewed, sanitized metadata for the submission.
+- Use actual artifacts as evidence. Never fabricate screen recordings, model
+  decisions, invoices, successful checks or comparative results.
+- Follow `/Users/magos/dev/trilogy/writing/docs/anti-slop-writing-guide.md` for
+  public copy. Apply corrections to canonical text silently.
+- Update `STATUS.md` and `edit/project.md` after milestones. Keep finished videos
+  in `renders/` and editable source under `edit/hyperframes/` (v3: `film-v3/`,
+  `tidepool-v0/`, `tidepool-loop/`).

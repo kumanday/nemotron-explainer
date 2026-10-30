@@ -1,0 +1,44 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #stagetext{position:absolute;left:120px;top:70px;font-size:30px;font-weight:800;color:#8d9bb0;}
+    #stagetext .active{color:#c8f560;}
+    #diffpanel{position:absolute;left:120px;top:180px;width:1000px;height:620px;border:1px solid #243142;background:#0b121c;overflow:hidden;font-family:JetBrains Mono,monospace;font-size:30px;line-height:1.35;padding:24px;box-sizing:border-box;opacity:0;}
+    #diffpanel pre{margin:0;white-space:pre-wrap;}
+    .add{color:#c8f560;} .rem{color:#ff5a5f;} .hdr{color:#8d9bb0;font-size:26px;margin:0 0 14px 0;}
+    #rounds{position:absolute;left:1200px;top:180px;width:600px;}
+    #rnum{font-size:150px;font-weight:900;color:#c8f560;line-height:1;}
+    #rdur{font-size:36px;color:#8d9bb0;margin-top:10px;}
+    #rnote{font-size:30px;color:#f2f5f8;margin-top:26px;line-height:1.4;}
+    #bar{position:absolute;left:120px;top:860px;width:1400px;height:10px;background:#243142;border-radius:5px;overflow:hidden;}
+    #barfill{position:absolute;inset:0;background:#c8f560;transform-origin:left;transform:scalex(0);}
+  </style>
+  <div id="root" data-composition-id="fix" data-width="1920" data-height="1080">
+    <div id="stagetext">Stage: Write · Render · <span class="active">Fix</span></div>
+    <div id="diffpanel">
+      <div class="hdr">Round 7 — fix the blind-review defects (tidepool-loop)</div>
+      <pre id="difftext"></pre>
+    </div>
+    <div id="rounds">
+      <div id="rnum">r7</div>
+      <div id="rdur">~4 min wall clock · 8.0 s · 1080p30</div>
+      <div id="rnote">Seven looks, seven fixes.</div>
+    </div>
+    <div id="bar"><div id="barfill"></div></div>
+  </div>
+  <script>
+    /* @cues frame=6 */ const CUE = {"diff": 2.48, "rounds": 16.56}; const SCENE_END = 19.18; /* @end-cues */
+    const tl=gsap.timeline({paused:true});
+    const diff=" diff --git a/compositions/tidepool.html b/compositions/tidepool.html\n-    .phone { border: 2px solid #243142; border-radius: 34px; }\n+    .phone { border: 10px solid #0a1420; border-radius: 52px; }\n-    #curve { stroke-width: 5; }\n+    #curve { stroke-width: 6; }\n-    tl.fromTo(\"#curve\",{ attr:{ strokeDashoffset: L } });\n+    tl.fromTo(draw,{p:0},{p:1,duration:2.6,onUpdate:... });\n-    #lowtide { top: 54%; }\n+    #lowtide { top: 40%; }  /* rides the dot */\n-    #wordmark { top: 76%; }\n+    #wordmark { top: 72%; } /* separated from headline */";
+    tl.to("#difftext",{innerText:diff,duration:0.2},CUE.diff);
+    tl.fromTo("#diffpanel",{y:20,opacity:0},{y:0,opacity:1,duration:0.6,ease:"power2.out"},CUE.diff);
+    // CUE.rounds: round counter lands
+    tl.fromTo("#rnum",{scale:0.5,opacity:0},{scale:1,opacity:1,duration:0.6,ease:"power2.out"},CUE.rounds);
+    tl.fromTo("#rdur",{opacity:0,y:10},{opacity:1,y:0,duration:0.5,ease:"power2.out"},CUE.rounds+0.3);
+    tl.fromTo("#rnote",{opacity:0,y:10},{opacity:1,y:0,duration:0.5,ease:"power2.out"},CUE.rounds+0.6);
+    // lime pulse runs the Fix stage bar once
+    tl.to("#barfill",{attr:{transform:"scalex(1)"},duration:0.9,ease:"power2.inOut"},CUE.rounds+1.2);
+    tl.to("#barfill",{attr:{transform:"scalex(0)"},duration:0.5},CUE.rounds+2.2);
+    window.__timelines["fix"]=tl;
+  </script>
+</template>

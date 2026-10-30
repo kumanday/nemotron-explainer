@@ -1,0 +1,62 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .title {
+      font-size: 86px;
+      font-weight: 900;
+      line-height: 1.05;
+      display: flex;
+      gap: 16px;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    .word {
+      display: inline-block;
+      filter: blur(6px);
+      opacity: 0;
+    }
+    .sub {
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 40px;
+      max-width: 80%;
+      text-align: center;
+      line-height: 1.5;
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div class="title clip" data-start="0" data-duration="8.28">
+      <span class="word" id="w1">One</span>
+      <span class="word" id="w2">brief</span>
+      <span class="word" id="w3">becomes</span>
+      <span class="word" id="w4">a</span>
+      <span class="word" id="w5">film.</span>
+    </div>
+    <div class="sub clip" data-start="2.8" data-duration="5.48" id="sub">
+      Every frame planned, built, and reviewed by this same workflow.
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#w1", { filter: "blur(6px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.13, ease: "power2.out" }, 0);
+    tl.fromTo("#w2", { filter: "blur(6px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.13, ease: "power2.out" }, 0.32);
+    tl.fromTo("#w3", { filter: "blur(6px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.13, ease: "power2.out" }, 0.96);
+    tl.fromTo("#w4", { filter: "blur(6px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.13, ease: "power2.out" }, 1.32);
+    tl.fromTo("#w5", { filter: "blur(6px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.13, ease: "power2.out" }, 1.52);
+    tl.fromTo("#sub", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 2.8);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

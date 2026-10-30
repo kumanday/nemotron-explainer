@@ -1,0 +1,235 @@
+{
+  "passed": false,
+  "artifact_sha256": "5ddea5da1011ef15e712f471f9858a33ba2aa59a89d985759156e9029395ddc5",
+  "checks": [
+    {
+      "name": "artifact",
+      "passed": true,
+      "detail": "/Users/magos/dev/nemotron-explainer/renders/submission-demo-v3.mp4"
+    },
+    {
+      "name": "render_document_head",
+      "passed": true,
+      "detail": "The root index.html needs an explicit head before body so HyperFrames 0.8.142 retains nested scene styles"
+    },
+    {
+      "name": "STORYBOARD.md",
+      "passed": true,
+      "detail": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/STORYBOARD.md"
+    },
+    {
+      "name": "SPEC.md",
+      "passed": true,
+      "detail": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/SPEC.md"
+    },
+    {
+      "name": "REVIEW.md",
+      "passed": true,
+      "detail": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/REVIEW.md"
+    },
+    {
+      "name": "design_spec",
+      "passed": true,
+      "detail": "A numerical visual design spec is required"
+    },
+    {
+      "name": "delivery_format",
+      "passed": true,
+      "detail": "H.264, 1080p30, nonempty and under 180 seconds"
+    },
+    {
+      "name": "duration_target",
+      "passed": true,
+      "detail": {
+        "duration_s": 148.866667,
+        "target_s": [
+          90,
+          150
+        ]
+      }
+    },
+    {
+      "name": "narration_stream",
+      "passed": true,
+      "detail": "An AAC audio stream is required; intelligibility needs review"
+    },
+    {
+      "name": "temporal_coverage",
+      "passed": false,
+      "detail": {
+        "max_near_static_hold_s": 13.5,
+        "limit_s": 5,
+        "intervals": [
+          {
+            "start_s": 16.5,
+            "end_s": 21.5,
+            "duration_s": 5.0
+          },
+          {
+            "start_s": 22.5,
+            "end_s": 31.0,
+            "duration_s": 8.5
+          },
+          {
+            "start_s": 33.0,
+            "end_s": 37.5,
+            "duration_s": 4.5
+          },
+          {
+            "start_s": 43.0,
+            "end_s": 46.0,
+            "duration_s": 3.0
+          },
+          {
+            "start_s": 47.0,
+            "end_s": 50.5,
+            "duration_s": 3.5
+          },
+          {
+            "start_s": 51.5,
+            "end_s": 55.5,
+            "duration_s": 4.0
+          },
+          {
+            "start_s": 56.0,
+            "end_s": 60.0,
+            "duration_s": 4.0
+          },
+          {
+            "start_s": 60.5,
+            "end_s": 64.5,
+            "duration_s": 4.0
+          },
+          {
+            "start_s": 68.0,
+            "end_s": 73.5,
+            "duration_s": 5.5
+          },
+          {
+            "start_s": 74.0,
+            "end_s": 84.0,
+            "duration_s": 10.0
+          },
+          {
+            "start_s": 85.0,
+            "end_s": 89.5,
+            "duration_s": 4.5
+          },
+          {
+            "start_s": 92.5,
+            "end_s": 106.0,
+            "duration_s": 13.5
+          },
+          {
+            "start_s": 117.5,
+            "end_s": 122.5,
+            "duration_s": 5.0
+          },
+          {
+            "start_s": 123.5,
+            "end_s": 130.0,
+            "duration_s": 6.5
+          },
+          {
+            "start_s": 130.5,
+            "end_s": 135.5,
+            "duration_s": 5.0
+          },
+          {
+            "start_s": 136.0,
+            "end_s": 139.0,
+            "duration_s": 3.0
+          },
+          {
+            "start_s": 140.0,
+            "end_s": 145.0,
+            "duration_s": 5.0
+          }
+        ],
+        "note": "Pixel change detects long holds, not explanatory quality"
+      }
+    },
+    {
+      "name": "cue_sync",
+      "passed": true,
+      "detail": {
+        "note": "Reveals must use narration cues; run scripts/cues.py SLOT --check",
+        "errors": []
+      }
+    },
+    {
+      "name": "layout_clean",
+      "passed": false,
+      "detail": {
+        "note": "No text overflow/overlap or errors in hyperframes check --at-transitions",
+        "issues": [
+          {
+            "code": "overlapping_gsap_tweens",
+            "severity": "warning",
+            "message": "GSAP tweens overlap on \"#r27\" for backgroundColor between 9.76s and 10.36s.",
+            "selector": "#r27",
+            "dataAttributes": {},
+            "sourceFile": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/compositions/board.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`.",
+            "section": "lint"
+          },
+          {
+            "code": "gsap_infinite_repeat",
+            "severity": "error",
+            "message": "GSAP tween uses `repeat: -1` (infinite) without a finite composition `data-duration`. The timeline can report an unbounded duration and make render planning fail.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/Users/magos/dev/nemotron-explainer/edit/hyperframes/film-v3/compositions/board.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Add a finite composition `data-duration`, or replace `repeat: -1` with `repeat: Math.max(0, Math.floor(totalDuration / singleCycleDuration) - 1)`.",
+            "section": "lint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "review_axes",
+      "passed": true,
+      "detail": "REVIEW.md scores all five axes and records located findings (references/review-rubric.md)"
+    },
+    {
+      "name": "artifact_bound_evidence",
+      "passed": false,
+      "detail": "Evidence must name the actual encoded artifact SHA-256"
+    },
+    {
+      "name": "video_layer",
+      "passed": true,
+      "detail": "Generated footage must be mounted as an actual video content layer"
+    },
+    {
+      "name": "generated_footage_evidence",
+      "passed": true,
+      "detail": "At least one executed TTV video clip must be included"
+    },
+    {
+      "name": "generated_clip_1",
+      "passed": true,
+      "detail": "Validated TTV result, successful provider receipt and source hash must agree"
+    },
+    {
+      "name": "explanatory_motion_review",
+      "passed": false,
+      "detail": "Two actual timecoded motion sequences, sampled images, concrete observations and hash-bound review are required"
+    }
+  ],
+  "limits": "This checks required evidence and obvious omissions. A critical visual and listening review is still required."
+}

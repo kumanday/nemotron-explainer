@@ -1,0 +1,22 @@
+{
+  "scores": {
+    "Engagement": 3,
+    "Prompt-Intent": 2,
+    "Composition": 2,
+    "Temporal": 3,
+    "Craft": 2
+  },
+  "findings": {
+    "blocker": 1,
+    "major": 3,
+    "minor": 0
+  },
+  "missing": [
+    "Beside the phone, a tide curve draws left to right across six hours.",
+    "a dot rides it to the next low tide, labelled \"Low tide 4:12 PM\".",
+    "Phone about 60% of frame height, never cropped.",
+    "Nothing touches the frame edges except the opening footage."
+  ],
+  "elapsed_s": 18.4,
+  "estimated_cost_usd": 0.00744
+}

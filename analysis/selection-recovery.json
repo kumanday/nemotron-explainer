@@ -1,0 +1,14 @@
+{
+  "drafts": [
+    {
+      "id": "edit-1",
+      "draft": "rough-cuts/manifests/drafts/edit-1.source.json",
+      "sha256": "22408eed718ae6370375b686bf195722da4b750f9db596bfbc04816c172430a0"
+    },
+    {
+      "id": "edit-2",
+      "draft": "rough-cuts/manifests/drafts/edit-2.source.json",
+      "sha256": "fcf74e9d54edd25f8d556038e15fed75ec47573661dfab9259c77dbe0ef7f9aa"
+    }
+  ]
+}

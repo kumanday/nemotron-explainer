@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "responses": [
+    {
+      "provider": "nebius-hackathon",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "stop_reason": "stop",
+      "text": "BOOTSTRAP_READY"
+    }
+  ],
+  "stderr_empty": true
+}

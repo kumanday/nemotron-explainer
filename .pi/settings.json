@@ -1,0 +1,33 @@
+{
+  "defaultProvider": "nebius-hackathon",
+  "defaultModel": "nvidia/Nemotron-3.5-Super-VL",
+  "defaultThinkingLevel": "high",
+  "sessionDir": ".pi/sessions",
+  "hideThinkingBlock": true,
+  "defaultTools": [
+    "read",
+    "bash",
+    "edit",
+    "write"
+  ],
+  "skills": [
+    "/Users/magos/dev/media-tooling/.agents/skills/media-motion-graphics",
+    "/Users/magos/dev/media-tooling/.agents/skills/media-tts",
+    "/Users/magos/.agents/skills/hyperframes",
+    "/Users/magos/.agents/skills/hyperframes-core",
+    "/Users/magos/.agents/skills/hyperframes-creative",
+    "/Users/magos/.agents/skills/hyperframes-animation",
+    "/Users/magos/.agents/skills/hyperframes-registry",
+    "/Users/magos/.agents/skills/hyperframes-cli"
+  ],
+  "extensions": [
+    "-builtin:mcp"
+  ],
+  "retry": {
+    "enabled": true,
+    "maxRetries": 6,
+    "provider": {
+      "maxRetries": 0
+    }
+  }
+}

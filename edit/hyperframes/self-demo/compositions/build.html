@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      overflow: hidden;
+    }
+    .label {
+      position: absolute;
+      left: 10%;
+      top: 6%;
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .cells {
+      position: absolute;
+      left: 10%;
+      top: 40%;
+      width: 56%;
+      display: flex;
+      gap: 16px;
+    }
+    .cell {
+      flex: 1;
+      background: var(--panel);
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 18px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cell .n {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .cell p {
+      font-size: 16px;
+      line-height: 1.45;
+      margin: 0;
+      color: var(--text);
+    }
+    .code {
+      position: absolute;
+      right: 10%;
+      top: 40%;
+      width: 42%;
+      background: #000;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 18px;
+      box-sizing: border-box;
+    }
+    .code pre {
+      font-family: "Space Mono", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #e2e8f0;
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .clip {
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="build" data-width="1920" data-height="1080">
+    <p id="build-label" class="label clip" data-start="0.1" data-duration="10.1">The build - storyboard and editable composition</p>
+    <div id="cell1" class="cell clip" data-start="0.5" data-duration="9.6">
+      <p class="n">Scene 1 · Hook</p>
+      <p>Title card, accent reveal, self-authorship premise.</p>
+    </div>
+    <div id="cell2" class="cell clip" data-start="0.5" data-duration="9.6">
+      <p class="n">Scene 2 · Input</p>
+      <p>Real Markdown brief on screen beside a terminal capture of the run.</p>
+    </div>
+    <div id="cell3" class="cell clip" data-start="0.5" data-duration="9.6">
+      <p class="n">Scene 3 · Build</p>
+      <p>Editable HyperFrames composition; narration synced to word timings.</p>
+    </div>
+    <div id="code" class="code clip" data-start="1.6" data-duration="8.0">
+      <pre>&lt;div data-composition-src="compositions/hook.html" data-start="0" data-duration="5.88"&gt;&lt;/div&gt;</pre>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#build-label", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo("#cell1", { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 0.5);
+    tl.fromTo("#cell2", { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 0.75);
+    tl.fromTo("#cell3", { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.0);
+    tl.fromTo("#code", { x: 24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.6);
+    window.__timelines["build"] = tl;
+  </script>
+</template>

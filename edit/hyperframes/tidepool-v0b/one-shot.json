@@ -1,0 +1,38 @@
+{
+  "schema": "nemotron-demo/one-shot-v1",
+  "at": "2026-10-30T05:40:29+00:00",
+  "condition": "one call, no tools, no render feedback",
+  "provider": "nebius-hackathon",
+  "model": "nvidia/Nemotron-3.5-Super-VL",
+  "endpoint": "https://api.tokenfactory.us-north1.nebius.com/v1/chat/completions",
+  "reasoning_effort": "medium",
+  "max_tokens": 32768,
+  "system_prompt": {
+    "path": "prompts/one-shot-system.md",
+    "sha256": "sha256:0dc619994378df011e82ec652c7bef972490a52871f793ab012e84215deda0de"
+  },
+  "brief": {
+    "path": "briefs/example-tidepool.md",
+    "sha256": "sha256:dfe19a58127b594ac3253d542a534821b9bc1f83606cb56882c9e3d4d503d1f7"
+  },
+  "assets": [
+    "edit/hyperframes/tidepool-loop/assets/tidepool.mp4:assets/tidepool.mp4"
+  ],
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 863,
+    "total_tokens": 28536,
+    "completion_tokens": 27673,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 25266
+    }
+  },
+  "estimated_cost_usd": 0.02516,
+  "cost_basis": "token counts x configs/nebius.json list rates; not an invoice",
+  "elapsed_s": 87.5,
+  "html_extracted": true
+}

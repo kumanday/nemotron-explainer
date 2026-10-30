@@ -1,0 +1,59 @@
+{
+  "currency": "USD",
+  "authorized_total": 100,
+  "scope": "Paid footage, keyframe images and narration for this submission",
+  "known_media_charges": 0,
+  "reserved_media_quotes": 5,
+  "unknown_media_charge_count": 3,
+  "status": "Narration executed (actual USD unknown, $5 reservation remains). Two TTV executions recorded: v2 MiniMax workbench clip and v3 tidepool clip, both fal billable units (8 units per 5 s 768p take); USD remains unknown until provider billing is reported. Video rates are documented in docs/footage-costs.md (768p 5 s = $0.20, 1080p 5 s = $0.40 at list rates).",
+  "operations": [
+    {
+      "id": "op-1",
+      "type": "narration",
+      "tool": "media-tts-frames",
+      "model": "eleven_v4",
+      "voice": "ELEVENLABS_VOICE_ID_EN (environment)",
+      "items": [
+        "pilot SCRIPT.md (~33 words, 19.24 s)",
+        "submission-film SCRIPT.md (planned ~260 words)"
+      ],
+      "reservation_usd": 5,
+      "actual_usd": null,
+      "basis": "conservative ceiling for short ElevenLabs eleven_v4 texts; pilot second run was cached (no new charge)",
+      "status": "narration-executed-actual-usd-unknown"
+    },
+    {
+      "id": "op-2",
+      "type": "ttv_footage",
+      "tool": "media-generated + scripts/ttv-round (fal via TTV file adapter)",
+      "model": "minimax/h3-max-turbo/image-to-video",
+      "result": "rough-cuts/manifests/results/a882c2ac-7d79-4234-aaf9-975915b464c5.json",
+      "clip_id": "866e5574-ae8f-4a6d-972f-cf7807ba67e3",
+      "take_id": "56005c94-bb2c-4eb5-9d9c-496330143b02",
+      "clip": "rough-cuts/generated-clips/scene-02/56005c94-bb2c-4eb5-9d9c-496330143b02/866e5574-ae8f-4a6d-972f-cf7807ba67e3.mp4",
+      "used_in": "v2 (renders/submission-demo-v2.mp4), scene 03 workbench",
+      "spec": "5 s, 16:9, 768P draft, muted, image-to-video from a gpt-image-2.5-sunburst keyframe",
+      "attempts": 2,
+      "billing": {"raw_unit_name": "X-Fal-Billable-Units", "raw_units": "8.0", "actual_usd": null},
+      "executed_at": "2026-10-30T02:52:38Z",
+      "status": "executed-actual-usd-unknown"
+    },
+    {
+      "id": "op-3",
+      "type": "ttv_footage",
+      "tool": "media-generated + scripts/ttv-round (fal via TTV file adapter)",
+      "model": "minimax/h3-max-turbo/image-to-video",
+      "result": "rough-cuts/manifests/results/f62d2fa5-4056-49af-bce8-1226121620f6.json",
+      "clip_id": "f9ad56a4-aaf2-43b7-ace9-8afae26183ca",
+      "take_id": "7d05743d-d720-43fd-9d9e-9f5181f090d0",
+      "clip": "rough-cuts/generated-clips/scene-01/7d05743d-d720-43fd-9d9e-9f5181f090d0/f9ad56a4-aaf2-43b7-ace9-8afae26183ca.mp4",
+      "used_in": "v3 worked example; mounted at edit/hyperframes/tidepool-loop/assets/tidepool.mp4",
+      "spec": "5 s, 16:9, 1920x1080, 24 fps, 768P render, muted, no people, no text, no logos; golden-hour tide pool, slow upward pull-back",
+      "attempts": 1,
+      "billing": {"raw_unit_name": "X-Fal-Billable-Units", "raw_units": "8.0", "actual_usd": null},
+      "executed_at": "2026-10-30T04:43:46Z",
+      "status": "executed-actual-usd-unknown"
+    }
+  ],
+  "inference": "Separate; see Pi route/usage metadata and bootstrap report. Cost estimates are not invoices."
+}

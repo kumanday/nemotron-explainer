@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nemotron Explainer — Submission Preview</title>
+  <style>
+    body { margin: 0; background: #0b0f19; color: #f8fafc; font-family: Inter, sans-serif; }
+    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .meta { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+    video { width: 100%; height: auto; background: #000; border-radius: 10px; display: block; margin-bottom: 24px; }
+    .note { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .note b { color: #f8fafc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nemotron Explainer — Submission Preview</h1>
+    <p class="meta">
+      1920×1080 · 30 fps · H.264 MP4 · 91 s · narration: eleven_v4 (Media Tooling)<br>
+      Rendered: renders/submission-demo.mp4 · Source: edit/hyperframes/self-demo/
+    </p>
+    <video controls poster="analysis/review-frames/scene-2.jpg">
+      <source src="../renders/submission-demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="note">
+      <p>This preview is browser-playable and references the final render at
+      <code>../renders/submission-demo.mp4</code> relative to <code>submission/</code>.</p>
+      <p>Editable source lives in <code>edit/hyperframes/self-demo/</code> (composition,
+      storyboard, narration metadata, review records). Real captures and review
+      frames are in <code>assets/captures/</code> and <code>analysis/review-frames/</code>.</p>
+    </div>
+  </div>
+</body>
+</html>

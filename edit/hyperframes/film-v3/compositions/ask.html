@@ -1,0 +1,39 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #boardwrap{position:absolute;left:120px;top:100px;width:1080px;height:560px;transform-origin:0 0;transform:scale(0.7);opacity:1;}
+    #brows{position:relative;left:0;top:0;}
+    .brow{position:relative;height:44px;display:flex;align-items:center;}
+    .bname{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;font-size:44px;font-weight:800;color:#f2f5f8;width:620px;}
+    .bbar{position:absolute;left:640px;top:14px;bottom:14px;height:16px;background:#243142;border-radius:8px;overflow:hidden;}
+    .bfill{position:absolute;inset:0;background:#c8f560;transform-origin:left;}
+    .belo{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;font-size:44px;font-weight:800;color:#8d9bb0;width:140px;justify-content:flex-end;padding-right:20px;box-sizing:border-box;}
+    .blast .bfill{background:#ff5a5f;} .blast .belo{color:#ff5a5f;} .blast .bname{color:#ff5a5f;}
+    #dashed{position:absolute;left:120px;top:720px;width:1200px;height:64px;border:3px dashed #8d9bb0;border-radius:12px;display:flex;align-items:center;padding-left:30px;box-sizing:border-box;opacity:0;}
+    #dtext{font-size:36px;font-weight:800;color:#f2f5f8;}
+    #claim{position:absolute;left:120px;top:800px;font-size:110px;font-weight:800;line-height:1.05;color:#f2f5f8;opacity:0;}
+    #url{position:absolute;left:120px;top:960px;font-size:36px;font-family:JetBrains Mono,monospace;color:#8d9bb0;opacity:0;}
+  </style>
+  <div id="root" data-composition-id="ask" data-width="1920" data-height="1080">
+    <div id="boardwrap"><div id="brows">
+      <div class="brow"><div class="bname">1. Claude Opus 5.5</div><div class="bbar"><div class="bfill" style="transform:scalex(1)"></div></div><div class="belo">1536</div></div>
+      <div class="brow"><div class="bname">2. Claude Sonnet 5.5</div><div class="bbar"><div class="bfill" style="transform:scalex(0.94)"></div></div><div class="belo">1443</div></div>
+      <div class="brow"><div class="bname">3. GPT-6 Astra</div><div class="bbar"><div class="bfill" style="transform:scalex(0.93)"></div></div><div class="belo">1427</div></div>
+      <div class="brow" style="opacity:0.4;"><div class="bname" style="color:#8d9bb0;">…</div><div class="belo" style="color:#8d9bb0;">…</div></div>
+      <div class="brow blast"><div class="bname">27. Nemotron 3 Ultra</div><div class="bbar"><div class="bfill" style="transform:scalex(0.20)"></div></div><div class="belo">304</div></div>
+    </div></div>
+    <div id="dashed"><div id="dtext">Nemotron 3.5 Super VL + loop — not scored</div></div>
+    <div id="claim">Made with this tool.</div>
+    <div id="url">github.com/kumanday/nemotron-explainer</div>
+  </div>
+  <script>
+    /* @cues frame=9 */ const CUE = {"ask": 3.76, "claim": 9.92}; const SCENE_END = 13.08; /* @end-cues */
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo("#dashed",{x:-60,opacity:0},{x:0,opacity:1,duration:0.6,ease:"power2.out"},CUE.ask);
+    tl.to("#dashed",{borderColor:"#c8f560",duration:0.4},CUE.ask+0.7);
+    tl.to(["#boardwrap","#dashed"],{opacity:0,duration:0.5},CUE.claim);
+    tl.fromTo("#claim",{y:20,opacity:0},{y:0,opacity:1,duration:0.6,ease:"power2.out"},CUE.claim);
+    tl.fromTo("#url",{y:14,opacity:0},{y:0,opacity:1,duration:0.5,ease:"power2.out"},CUE.claim+0.5);
+    window.__timelines["ask"]=tl;
+  </script>
+</template>

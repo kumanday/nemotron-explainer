@@ -1,0 +1,5 @@
+#!/bin/zsh
+set -eu
+demo_root=${0:A:h:h}
+export NEMOTRON_BRIEF="$demo_root/RECOVER.md"
+exec "$demo_root/scripts/start-pi" "$@"

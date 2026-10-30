@@ -1,0 +1,71 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #06202b; overflow: hidden; }
+    .video-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sweep { position: absolute; top: 44%; left: -45%; width: 190%; height: 28px; background: linear-gradient(90deg, transparent, rgba(255,255,255,1.0), transparent); filter: blur(4px); opacity: 0; pointer-events: none; }
+    .phone { position: absolute; left: 20%; bottom: 0; width: 30%; height: 60%; border: 10px solid #0a1420; border-top: 44px solid #0a1420; border-radius: 52px; overflow: hidden; display: block; background: #0c1824; }
+    .phone-speaker { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); width: 120px; height: 22px; background: #0a1420; border-radius: 11px; }
+    .phone-camera { position: absolute; left: 50%; top: 46px; transform: translateX(-50%); width: 20px; height: 20px; background: #0a1420; border-radius: 10px; }
+    .phone-home { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); width: 80px; height: 8px; background: rgba(255,255,255,0.10); border-radius: 4px; }
+    .phone-video { position: absolute; inset: 44px 10px 28px 10px; width: auto; height: auto; object-fit: cover; display: block; }
+    .path-wrap { position: absolute; left: 58%; top: 26%; width: 38%; height: 40%; }
+    svg { width: 100%; height: 100%; display: block; }
+    #curve { fill: none; stroke: #5fd4c4; stroke-width: 6; }
+    .dot { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #f2c48d; border: 2px solid #06202b; box-sizing: border-box; }
+    .lowtide { position: absolute; left: 60%; top: 40%; font-size: 32px; font-weight: 700; color: #f2c48d; opacity: 0; }
+    #headline { position: absolute; left: 58%; top: 44%; width: 720px; font-size: 100px; font-weight: 800; line-height: 1.12; color: #e8f4f2; opacity: 0; }
+    #wordmark { position: absolute; left: 58%; top: 72%; font-size: 56px; font-weight: 900; letter-spacing: -0.02em; color: #5fd4c4; opacity: 0; }
+    #tagline { position: absolute; left: 58%; top: 82%; font-size: 32px; font-weight: 500; color: #8fb3a8; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="tidepool" data-width="1920" data-height="1080">
+    <video class="video-full clip" id="full" src="assets/tidepool.mp4" data-start="0" data-duration="2.6" muted playsinline></video>
+    <div class="sweep clip" id="sweep" data-start="0" data-duration="2.6"></div>
+    <div class="phone clip" id="phone" data-start="2.6" data-duration="5.4">
+      <div class="phone-speaker"></div>
+      <div class="phone-camera"></div>
+      <video class="phone-video clip" id="phone-video" src="assets/tidepool.mp4" data-start="2.6" data-duration="5.4" muted playsinline></video>
+      <div class="phone-home"></div>
+    </div>
+    <div class="path-wrap clip" data-start="2.6" data-duration="2.6" id="pathwrap">
+      <svg viewBox="0 0 730 454" preserveAspectRatio="none">
+        <path id="curve" d="M 40,220 C 220,170 430,350 640,280" />
+      </svg>
+      <div class="dot clip" id="dot" data-start="2.6" data-duration="2.6" style="left:40px;top:220px;"></div>
+    </div>
+    <div class="lowtide clip" id="lowtide" data-start="4.6" data-duration="3.4">Low tide 4:12 PM</div>
+    <h1 id="headline" class="clip" data-start="5.2" data-duration="2.8">Know the tide before you go.</h1>
+    <div id="wordmark" class="clip" data-start="6.2" data-duration="1.8">Tidepool</div>
+    <div id="tagline" class="clip" data-start="6.2" data-duration="1.8">Free on iOS and Android</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const curve = document.getElementById("curve");
+    const L = curve.getTotalLength();
+    curve.setAttribute("stroke-dasharray", L);
+    curve.setAttribute("stroke-dashoffset", L);
+    let draw = { p: 0 };
+    tl.fromTo(draw, { p: 0 }, { p: 1, duration: 2.6, ease: "power2.inOut",
+      onUpdate: function () { curve.style.strokeDashoffset = (L * (1 - draw.p)) + "px"; }
+    }, 2.6);
+    tl.fromTo(".sweep", { opacity: 0, x: "-150%" }, { opacity: 0.85, x: "130%", duration: 1.8, ease: "power2.out" }, 0);
+    tl.to(".sweep", { opacity: 0, duration: 0.4 }, 2.0);
+    tl.fromTo("#full", { scale: 1, x: 0, y: 0 }, { scale: 0.3, x: 384, y: 238, transformOrigin: "0% 0%", duration: 0.45, ease: "power2.in" }, 2.05);
+    tl.fromTo("#phone", { y: 0 }, { y: -260, duration: 1.15, ease: "expo.out" }, 2.4);
+    tl.to("#dot", {
+      keyframes: [
+        { left: "40px", top: "220px" },
+        { left: "210px", top: "185px" },
+        { left: "380px", top: "255px" },
+        { left: "540px", top: "290px" },
+        { left: "640px", top: "280px" }
+      ],
+      duration: 2.6,
+      ease: "none"
+    }, 2.6);
+    tl.fromTo("#lowtide", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 4.6);
+    tl.fromTo("#headline", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "expo.out" }, 5.2);
+    tl.fromTo("#wordmark", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.2);
+    tl.fromTo("#tagline", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.2);
+    window.__timelines["tidepool"] = tl;
+  </script>
+</template>

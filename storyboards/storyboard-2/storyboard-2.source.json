@@ -1,0 +1,31 @@
+{
+  "project_id": "nemotron-explainer",
+  "revision_id": "storyboard-2",
+  "approved": true,
+  "revision_note": "Second reviewed storyboard: one TTV-generated tide-pool shot for the film v3 worked example (Tidepool hook). Golden-hour top-down tide pool, gentle ripples, slow upward pull-back; 5 s, 16:9, 1080p, muted, no people, no text, no logos.",
+  "motion_review": {
+    "mode": "auto",
+    "reviewer": "nebius-hackathon/nvidia/Nemotron-3.5-Super-VL",
+    "disposition": "passed",
+    "evidence": [
+      {"path": "storyboards/v3/DIRECTION.md", "sha256": "sha256:9720e1f57a7f5b823c7febfe417c6936c0fd9093a1a77813d52526fdff8ba080"},
+      {"path": "briefs/example-tidepool.md", "sha256": "sha256:dfe19a58127b594ac3253d542a534821b9bc1f83606cb56882c9e3d4d503d1f7"}
+    ]
+  },
+  "scenes": [{
+    "scene_id": "scene-01",
+    "order": 1,
+    "requested_duration_s": 5,
+    "intent": {
+      "summary": "Looking straight down into a clear rocky tide pool at golden hour, gentle ripples over anemones and pebbles, slow upward pull-back. Photographic, no people, no readable text, no logos. Muted.",
+      "entry_state": "Photographic film still, looking straight down into a clear rocky tide pool at golden hour, anemones and pebbles on the rocky bottom, gentle ripples on the water surface, no people, no text, no logos.",
+      "exit_state": "Same tide pool, slightly farther above after a slow upward pull-back, gentle ripples continue, no people, no text, no logos.",
+      "continuity_notes": "Single standalone shot; golden-hour light, clear water, rocky bottom with anemones and pebbles throughout."
+    },
+    "transition_out": {"type": "cut", "editorial_note": null},
+    "continuity": {"mode": "independent", "required_reference_asset_ids": []},
+    "reference_assets": [],
+    "delivery": {"aspect_ratio": "16:9", "target_width": 1920, "target_height": 1080, "audio_policy": "mute"},
+    "generation_policy": {"provider_preferences": ["fal"], "max_attempts": 2, "max_estimated_cost_usd": 2, "allow_provider_fallback": false}
+  }]
+}

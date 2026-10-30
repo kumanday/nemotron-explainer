@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .video-wrap {
+      position: absolute;
+      inset: 0;
+    }
+    .chapter {
+      position: absolute;
+      left: 10%;
+      bottom: 16%;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 82%;
+      line-height: 1.35;
+    }
+    .chapter-text {
+      display: inline-block;
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="workbench" data-width="1920" data-height="1080">
+    <div class="video-wrap">
+      <video id="workbench-video" src="assets/generated/workbench-clip.mp4" data-start="0" data-duration="6.12" muted></video>
+    </div>
+    <div class="chapter clip" data-start="0.5" data-duration="4.0">
+      <span class="chapter-text">Generated footage, muted</span>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".chapter-text", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.5);
+    window.__timelines["workbench"] = tl;
+  </script>
+</template>

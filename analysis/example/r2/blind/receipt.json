@@ -1,0 +1,38 @@
+{
+  "schema": "nemotron-demo/blind-review-v1",
+  "at": "2026-10-30T05:42:26+00:00",
+  "model": "nvidia/Nemotron-3.5-Super-VL",
+  "endpoint": "https://api.tokenfactory.us-north1.nebius.com/v1/chat/completions",
+  "render": "renders/tidepool-r2.mp4",
+  "brief": "briefs/example-tidepool.md",
+  "times_s": [
+    "0.5",
+    "1.5",
+    "2.6",
+    "3.4",
+    "4.2",
+    "5.2",
+    "6.4",
+    "7.6"
+  ],
+  "reasoning_effort": "medium",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 8242,
+    "total_tokens": 13284,
+    "completion_tokens": 5042,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 4352,
+      "multimodal_tokens": {
+        "image": 7376
+      }
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2638
+    }
+  },
+  "estimated_cost_usd": 0.00701,
+  "elapsed_s": 12.4,
+  "parsed": true
+}

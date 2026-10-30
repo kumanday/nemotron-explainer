@@ -1,0 +1,20 @@
+{
+  "edit_revision_id": "edit-2",
+  "project_id": "nemotron-explainer",
+  "storyboard_revision_id": "storyboard-1",
+  "source_results": [{"result_id": "a882c2ac-7d79-4234-aaf9-975915b464c5", "sha256": "sha256:48ffb4809647c5f423cb2df67988f1461cc2b3fdeec4d67778faa2b9423c80d4"}],
+  "scenes": [{
+    "scene_id": "scene-02",
+    "order": 1,
+    "take_id": "56005c94-bb2c-4eb5-9d9c-496330143b02",
+    "transition_out": {"type": "cut", "editorial_note": null},
+    "clip_edits": [{
+      "clip_id": "866e5574-ae8f-4a6d-972f-cf7807ba67e3",
+      "order": 0,
+      "trim_in_s": 0,
+      "trim_out_s": 5,
+      "audio_use": "mute"
+    }]
+  }],
+  "continuity_decisions": []
+}

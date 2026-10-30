@@ -1,0 +1,42 @@
+<template>
+  <style>
+    #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #stagetext{position:absolute;left:120px;top:70px;font-size:30px;font-weight:800;color:#8d9bb0;}
+    #stagetext .active{color:#c8f560;}
+    #player{position:absolute;left:260px;top:150px;width:1280px;height:720px;border:1px solid #243142;background:#0b121c;overflow:hidden;opacity:0;}
+    #player .inner{position:absolute;inset:24px;display:flex;flex-direction:column;height:calc(100% - 48px);}
+    #player .top{display:flex;justify-content:space-between;align-items:center;}
+    #chip{font-size:30px;font-weight:800;color:#f2f5f8;background:#131a24;border:1px solid #243142;padding:8px 16px;border-radius:8px;}
+    #timecode{font-family:JetBrains Mono,monospace;font-size:24px;color:#8d9bb0;}
+    #scrub{position:absolute;left:24px;right:24px;bottom:30px;height:4px;background:#243142;border-radius:2px;}
+    #scrubfill{position:absolute;inset:0;background:#c8f560;transform-origin:left;transform:scalex(0);}
+    #error{position:absolute;left:24px;top:90px;right:24px;bottom:80px;font-family:JetBrains Mono,monospace;font-size:26px;line-height:1.45;color:#f2f5f8;overflow:hidden;}
+    #error pre{white-space:pre-wrap;margin:0;}
+    #receipt{position:absolute;left:260px;top:890px;width:1280px;font-size:32px;color:#8d9bb0;line-height:1.4;opacity:0;}
+    #receipt b{color:#f2f5f8;}
+  </style>
+  <div id="root" data-composition-id="oneshot" data-width="1920" data-height="1080">
+    <div id="stagetext">Stage: <span class="active">Write</span> · Render · Look · Fix</div>
+    <div id="player">
+      <div class="inner">
+        <div class="top"><div id="chip">v0 · one shot</div><div id="timecode">0:00 / 8:00</div></div>
+        <div id="scrub"><div id="scrubfill"></div></div>
+        <div id="error"><pre id="errortext"></pre></div>
+      </div>
+    </div>
+    <div id="receipt"><b>One-shot result (one call, no tools, no render feedback):</b> finish_reason=length · 32,768 completion tokens · est. $0.03 · no HTML produced · the benchmark condition returned nothing to render.</div>
+  </div>
+  <script>
+    /* @cues frame=4 */ const CUE = {"v0": 4.4, "look": 9.253}; const SCENE_END = 14.14; /* @end-cues */
+    const tl=gsap.timeline({paused:true});
+    tl.fromTo("#player",{y:40,opacity:0},{y:0,opacity:1,duration:0.7,ease:"expo.out"},0);
+    tl.fromTo("#scrubfill",{attr:{transform:"scalex(0)"}},{attr:{transform:"scalex(1)"},duration:8,ease:"none"},0.6);
+    const err="provider returned no HTML document\nfinish_reason: length (token limit)\ncompletion_tokens: 32768\nestimated_cost_usd: 0.02975\nelapsed_s: 278.6\nhtml_extracted: false\n\n=> v0 produced no render. Nothing to show.";
+    tl.to("#errortext",{innerText:err,duration:0.2},CUE.v0);
+    tl.fromTo("#receipt",{y:14,opacity:0},{y:0,opacity:1,duration:0.5,ease:"power2.out"},CUE.v0);
+    // CUE.look: the player freezes on the error output (scrub stops, frame held)
+    tl.to("#scrubfill",{pause:true},CUE.look);
+    tl.to("#error",{border:"2px solid #ffb020",duration:0.4},CUE.look);
+    window.__timelines["oneshot"]=tl;
+  </script>
+</template>

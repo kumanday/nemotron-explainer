@@ -1,0 +1,21 @@
+#!/bin/zsh
+set -eu
+demo_root=${0:A:h:h}
+if [[ -z ${NEBIUS_API_KEY:-} ]]; then
+  if [[ ${NEMOTRON_ENV_RELOADED:-} != 1 ]]; then
+    export NEMOTRON_ENV_RELOADED=1
+    exec /bin/zsh -ic 'exec "$@"' nemotron-env "$0" "$@"
+  fi
+  print -u2 'NEBIUS_API_KEY is missing. Export it in your shell, then run this launcher again.'
+  exit 1
+fi
+cd "$demo_root"
+demo_brief=${NEMOTRON_BRIEF:-$demo_root/RECOVER.md}
+if [[ ! -f "$demo_brief" ]]; then
+  print -u2 "Instruction file not found: $demo_brief"
+  exit 1
+fi
+exec pi --approve --no-mcp --no-extensions -e "$demo_root/.pi/extensions/nebius.ts" \
+  --provider nebius-hackathon --model nvidia/Nemotron-3.5-Super-VL \
+  --session-dir "$demo_root/.pi/sessions" "$@" \
+  @"$demo_brief" 'Proceed according to the supplied instructions. Read STATUS.md and resume from actual project state.'
