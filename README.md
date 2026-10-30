@@ -9,6 +9,44 @@ Built for the [Nebius Global AI Hackathon](https://nebiusglobalaihackathon.devpo
 The submission film is produced by this workflow, with Nemotron writing the
 storyboard, script, compositions and reviews.
 
+## How it uses NVIDIA Nemotron and Nebius Token Factory
+
+**Model:** `nvidia/Nemotron-3.5-Super-VL` (120B total, 12B active, reasoning,
+text and image input, 262K context), served by **Nebius Token Factory** at the
+US North 1 endpoint in [`configs/nebius.json`](configs/nebius.json). Every model
+call in the project goes to this one model; nothing falls back to another
+provider.
+
+Nemotron does four jobs:
+
+1. **Agent.** It runs inside Pi and writes the storyboard, narration script,
+   HyperFrames compositions and code fixes, using Pi's read, bash, edit and
+   write tools.
+2. **Eyes.** It reads frames sampled from its own encoded render (up to eight
+   images per request) and reviews them against a five-axis rubric.
+3. **Blind reviewer.** [`scripts/blind-review.py`](scripts/blind-review.py)
+   makes a fresh call that sees only the brief and the frames, so the review
+   isn't biased by the agent's plan.
+4. **One-shot baseline.** [`scripts/one-shot.py`](scripts/one-shot.py) makes
+   the single no-tools call that the Code2Video benchmark measures.
+
+**Where Token Factory sped up the work**
+
+- **One-file integration.** Token Factory exposes an OpenAI-compatible API, so
+  [`.pi/extensions/nebius.ts`](.pi/extensions/nebius.ts) registers it in Pi
+  with no GPU hosting or model serving on our side.
+- **Many cheap calls.** The loop depends on looking often. The usage ledger
+  records 925 model calls across 7 Pi sessions in about eight hours on
+  2026-10-30: 7.5M input tokens, 111M cached-prompt tokens and 0.77M output
+  tokens, about $36 at list price ($0.30 per million input, $0.90 per million
+  output).
+- **Fast reviews.** A blind review of one render takes about 18 seconds and
+  costs under one cent, so every round gets one.
+- **Long sessions.** The 262K context window holds a full production session
+  with its tool output and image history.
+
+Token Factory is the only Nebius service used. Rendering runs locally.
+
 ## Why
 
 Artificial Analysis'
@@ -109,11 +147,51 @@ production log. Earlier attempts (v1, v2) and why they were rejected are kept in
 [`docs/archive/`](docs/archive/) and `edit/hyperframes/self-demo*/` as part of the
 record.
 
-## Running it
+## Setup
 
-Prerequisites: Pi 1.1.0, HyperFrames 0.8.142, Node, FFmpeg, the Media Tooling
-and TTV Pipeline commands installed, and `NEBIUS_API_KEY` (plus Fal and ElevenLabs
-keys for footage and narration) in the environment.
+Tested on macOS with Pi 1.1.0, HyperFrames 0.8.142, Node 25 and Python 3.14.
+
+1. Clone this repository:
+
+   ```sh
+   git clone https://github.com/kumanday/nemotron-explainer.git
+   cd nemotron-explainer
+   ```
+
+2. Install the tools:
+
+   ```sh
+   brew install uv ffmpeg node
+   npm install -g hyperframes@0.8.142
+   uv tool install "media-tooling[elevenlabs] @ git+https://github.com/kumanday/media-tooling"
+   media-tooling-link-skills
+   ```
+
+   Install the Pi coding agent (1.1.0). For generated footage, also clone
+   [TTV Pipeline](https://github.com/kumanday/ttv-pipeline) and run
+   `uv sync --extra dev` in it.
+
+3. Set credentials in your environment (never on the command line):
+
+   - `NEBIUS_API_KEY`: required, from Nebius Token Factory.
+   - `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID_EN`: narration.
+   - `FAL_KEY`: generated footage.
+
+4. Point Pi at the skills on your machine. [`.pi/settings.json`](.pi/settings.json)
+   lists the Media Tooling and HyperFrames skill folders by absolute path;
+   change them to where `media-tooling-link-skills` put them (usually
+   `~/.agents/skills/`).
+
+5. Check the setup. These print which commands and credentials are present,
+   never their values:
+
+   ```sh
+   python3 scripts/doctor.py
+   node scripts/check-pi-setup.mjs
+   python3 scripts/smoke-pi.py   # small paid call: Pi tools and image reading
+   ```
+
+## Running it
 
 ```sh
 ./scripts/recover-pi            # fresh Pi session on the current brief
@@ -128,11 +206,9 @@ python3 scripts/blind-review.py --brief briefs/example-tidepool.md \
   --render renders/tidepool-r7.mp4 --out analysis/my-blind
 ```
 
-Checks:
+Tests and delivery checks:
 
 ```sh
-python3 scripts/doctor.py
-node scripts/check-pi-setup.mjs
 node --test tests/image-limit.test.mjs tests/scoped-search.test.mjs
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/check-delivery.py
