@@ -2,14 +2,14 @@
 <style>
 #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
 #viewport{position:absolute;inset:120px;overflow:hidden;}
-#list{position:relative;left:0;top:100px;}
-.row{position:relative;height:60px;display:flex;align-items:center;}
-.name{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;font-size:36px;font-weight:800;color:#f2f5f8;width:700px;}
-.bar{position:absolute;left:720px;top:22px;bottom:22px;height:16px;background:#243142;border-radius:8px;overflow:hidden;}
-.fill{position:absolute;inset:0;background:#c8f560;transform-origin:left;transform:scalex(0);}
-.elo{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;font-size:36px;font-weight:800;color:#8d9bb0;width:180px;justify-content:flex-end;padding-right:24px;box-sizing:border-box;}
+#list{position:relative;left:0;top:100px;width:100%;}
+.row{position:relative;height:60px;width:100%;display:flex;align-items:center;}
+.name{flex:0 0 820px;font-size:36px;font-weight:800;color:#f2f5f8;white-space:nowrap;}
+.bar{flex:1;height:16px;background:#243142;border-radius:8px;overflow:hidden;margin:0 14px;}
+.fill{height:100%;background:#c8f560;transform-origin:left;transform:scalex(0);}
+.elo{flex:0 0 200px;font-size:36px;font-weight:800;color:#8d9bb0;text-align:right;}
 .row.last .fill{background:#ff5a5f;} .row.last .elo{color:#ff5a5f;font-weight:900;} .row.last .name{color:#ff5a5f;}
-#chips{position:absolute;right:140px;top:900px;display:flex;flex-direction:column;gap:14px;opacity:0;}
+#chips{position:absolute;right:260px;top:740px;display:flex;flex-direction:column;gap:14px;opacity:0;}
 .chip{font-size:32px;font-weight:700;padding:10px 18px;border:1px solid #243142;background:#131a24;color:#f2f5f8;border-radius:8px;}
 .chip.agent{color:#c8f560;border-color:#c8f560;}
 </style>
@@ -27,7 +27,7 @@
 <div class="row" id="r27" class="last"><div class="name">27. Nemotron 3 Ultra</div><div class="bar"><div class="fill" id="b27" style="transform:scalex(0.19791666666666666)"></div></div><div class="elo">304</div></div>
 </div></div>
 <div id="chips"><div class="chip agent">1 call</div><div class="chip">0 tools</div><div class="chip">0 renders seen</div></div>
-<div id="srcline" style="position:absolute;left:120px;bottom:110px;font-size:28px;color:#8d9bb0;">Source: Artificial Analysis, Code2Video-AA, accessed 2026-10-29</div>
+<div id="srcline" style="position:absolute;left:120px;top:930px;font-size:28px;color:#8d9bb0;">Source: Artificial Analysis, Code2Video-AA, accessed 2026-10-29</div>
 </div>
 <script>
 /* @cues frame=1 */ const CUE = {"last": 9.76, "rules": 12.48}; const SCENE_END = 16.14; /* @end-cues */

@@ -1,6 +1,7 @@
 <template>
   <style>
     #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
+    #backdrop{position:absolute;inset:0;background:#16243a;opacity:0;}
     #ringbox{position:absolute;left:180px;top:200px;width:600px;height:600px;}
     svg{width:100%;height:100%;display:block;}
     #ring{fill:none;stroke:#243142;stroke-width:10;stroke-dasharray:1885;stroke-dashoffset:1885;}
@@ -17,6 +18,7 @@
     .cbasis{font-size:20px;color:#8d9bb0;margin:0 0 14px 0;}
   </style>
   <div id="root" data-composition-id="stack" data-width="1920" data-height="1080">
+    <div id="backdrop"></div>
     <div id="ringbox">
       <svg viewBox="0 0 600 600"><circle id="ring" cx="300" cy="300" r="280"/></svg>
       <div class="node" id="nwrite">Write</div>
@@ -39,16 +41,12 @@
   <script>
     /* @cues frame=8 */ const CUE = {"media": 6.08, "cost": 13.12}; const SCENE_END = 18.7; /* @end-cues */
     const tl=gsap.timeline({paused:true});
-    const ring=document.getElementById("ring");
-    ring.style.strokeDasharray="1885"; ring.style.strokeDashoffset="1885";
-    tl.to({p:1},{p:0,duration:3.0,ease:"power2.inOut",onUpdate:function(){
-      ring.style.strokeDashoffset=(1885*this.target().p)+"px";
-    }},0);
-    // breathing ring pulse keeps the diagram alive across the read (finite, scene-length)
-    let breath={p:0};
-    tl.to(breath,{p:1,duration:2.2,yoyo:true,repeat:6,ease:"power2.inOut",onUpdate:function(){
-      ring.style.strokeDashoffset=(942*(1-breath.p))+"px";
-    }},3.2);
+    // draw the loop ring once as the scene opens (CSS property tween, captured in sub-comps)
+    tl.to("#ring",{strokeDashoffset:0,duration:3.0,ease:"power2.inOut"},0);
+    // ring keeps pulsing (draw/undraw) so the held diagram is never a frozen frame; finite repeats, linear speed, cued to narration
+    tl.to("#ring",{strokeDashoffset:1885,yoyo:true,repeat:8,duration:1.5,ease:"none"},CUE.media);
+    // gentle ambient backdrop breath (full-bleed, distinct color) so the held scene is never a frozen frame
+    tl.to("#backdrop",{opacity:0.10,yoyo:true,repeat:4,duration:6,ease:"power2.inOut"},0);
     tl.to("#nwrite",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.1);
     tl.to("#nrender",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.3);
     tl.to("#nlook",{opacity:1,scale:1,duration:0.5,ease:"power2.out"},0.55);

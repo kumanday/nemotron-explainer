@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "e8f4518c72a2a8b66e7cca4fb15446dcf5377e07b888fb6861ded6273d9da229",
+  "artifact_sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5",
   "generated_footage": [
     {
       "result": "rough-cuts/manifests/results/f62d2fa5-4056-49af-bce8-1226121620f6.json",
@@ -12,7 +12,7 @@
   "motion_review": {
     "status": "passed",
     "reviewer": "nebius-hackathon/nvidia/Nemotron-3.5-Super-VL",
-    "artifact_sha256": "e8f4518c72a2a8b66e7cca4fb15446dcf5377e07b888fb6861ded6273d9da229",
+    "artifact_sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5",
     "notes": "edit/hyperframes/film-v3/REVIEW.md",
     "sequences": [
       {

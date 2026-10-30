@@ -3,7 +3,7 @@
     #root{position:absolute;inset:0;background:#0a0e14;color:#f2f5f8;font-family:Inter,sans-serif;overflow:hidden;}
     #stagetext{position:absolute;left:120px;top:70px;font-size:30px;font-weight:800;color:#8d9bb0;}
     #stagetext .active{color:#c8f560;}
-    #diffpanel{position:absolute;left:120px;top:180px;width:1000px;height:620px;border:1px solid #243142;background:#0b121c;overflow:hidden;font-family:JetBrains Mono,monospace;font-size:26px;line-height:1.35;padding:24px;box-sizing:border-box;opacity:0;}
+    #diffpanel{position:absolute;left:120px;top:180px;width:1080px;height:620px;border:1px solid #243142;background:#0b121c;overflow:hidden;font-family:JetBrains Mono,monospace;font-size:22px;line-height:1.3;padding:24px;box-sizing:border-box;opacity:0;}
     #diffpanel pre{margin:0;white-space:pre-wrap;}
     .add{color:#c8f560;} .rem{color:#ff5a5f;} .hdr{color:#8d9bb0;font-size:26px;margin:0 0 14px 0;}
     #rounds{position:absolute;left:1200px;top:180px;width:600px;}
@@ -32,6 +32,8 @@
     const diff=" diff --git a/compositions/tidepool.html b/compositions/tidepool.html\n-    .phone { border: 2px solid #243142; border-radius: 34px; }\n+    .phone { border: 10px solid #0a1420; border-radius: 52px; }\n-    #curve { stroke-width: 5; attr stroke-dashoffset }\n+    #curve { stroke-width: 6; GSAP onUpdate }\n-    tl.fromTo(\"#curve\",{ attr:{ strokeDashoffset: L } });\n+    tl.fromTo(draw,{p:0},{p:1,duration:2.6,onUpdate:... });\n-    #lowtide { top: 54%; }\n+    #lowtide { top: 40%; }  /* rides the dot */\n-    #wordmark { top: 76%; }\n+    #wordmark { top: 72%; } /* separated from headline */";
     tl.to("#difftext",{innerText:diff,duration:0.2},CUE.diff);
     tl.fromTo("#diffpanel",{y:20,opacity:0},{y:0,opacity:1,duration:0.6,ease:"power2.out"},CUE.diff);
+    // subtle panel breath so the static diff is never a frozen frame (starts after the appear tween ends, no overlap)
+    tl.to("#diffpanel",{opacity:0.74,yoyo:true,repeat:6,duration:4.5,ease:"power2.inOut"},CUE.diff+0.8);
     // CUE.rounds: round counter lands
     tl.fromTo("#rnum",{scale:0.5,opacity:0},{scale:1,opacity:1,duration:0.6,ease:"power2.out"},CUE.rounds);
     tl.fromTo("#rdur",{opacity:0,y:10},{opacity:1,y:0,duration:0.5,ease:"power2.out"},CUE.rounds+0.3);
@@ -39,7 +41,6 @@
     // lime pulse runs the Fix stage bar once
     tl.to("#barfill",{attr:{transform:"scalex(1)"},duration:0.9,ease:"power2.inOut"},CUE.rounds+1.2);
     tl.to("#barfill",{attr:{transform:"scalex(0)"},duration:0.5},CUE.rounds+2.2);
-    tl.to("#root",{y:22,duration:19.18,ease:"none"},0);
     window.__timelines["fix"]=tl;
   </script>
 </template>

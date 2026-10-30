@@ -2,15 +2,15 @@
   "schema": "nemotron-demo/provenance-v1",
   "project": "nemotron-explainer",
   "final_artifact": {
-    "path": "renders/submission-demo.mp4",
-    "sha256": "dfce15b157152339073aa10bcc9105eaea4ff94d1d67c9ede017f8cb79fde732",
+    "path": "renders/submission-demo-v3.mp4",
+    "sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5",
     "container": "mp4",
     "video_codec": "h264",
     "resolution": "1920x1080",
     "fps": 30,
-    "duration_s": 91.04,
+    "duration_s": 148.87,
     "audio_codec": "aac",
-    "audio_duration_s": 91.05
+    "audio_duration_s": 148.84
   },
   "route": {
     "provider": "nebius-hackathon",
@@ -38,59 +38,61 @@
       "sha256": "2ccc58d2b48f3fa5cf4d71d3a42dbaf2b246e99adabb7b25ad666eb074ebfcc8"
     },
     "script": {
-      "path": "edit/hyperframes/self-demo/SCRIPT.md",
-      "sha256": "d9f4585b2ebc3430e40c35b028ad5d595aca1bbacd4327ecf89a6389268b929a"
+      "path": "edit/hyperframes/film-v3/SCRIPT.md",
+      "sha256": "21a30c31fb55baef898f0b61e9add8a2f1f159fa288a6c721066c8901abb47d3"
     },
     "composition": {
-      "path": "edit/hyperframes/self-demo/index.html",
-      "sha256": "7b13418dde2471df2c2f85c2383fcb7d1f458a8eaac949f0512c6a549cd5db1d"
+      "path": "edit/hyperframes/film-v3/index.html",
+      "sha256": "93b68d6e069f7c91ae6e7df2731c1baf27492681da70eef87527371f6525b560"
     },
     "narration_metadata": {
-      "path": "edit/hyperframes/self-demo/audio_meta.json",
-      "sha256": "954bf36f3a22b4c7eacda8065b0044a0c8ee1daef0b91de751968b4cfc9c6fd5"
+      "path": "edit/hyperframes/film-v3/audio_meta.json",
+      "sha256": "535e1e8889cff1f0299a793b31c0a3f68764136d48cff463fd0ffade16bb9a90"
     },
     "media_budget": {
       "path": "analysis/media-budget.json",
-      "sha256": "90c6ee7c1e810a6c1b4b34c64286da130b25df787f9d84f978de5afdb1bb2441"
+      "sha256": "0bfc1900284fe83e79b5d157fefd606c47c59a8b867448ffad9b01dfd4a3d229"
     }
   },
   "components": {
     "pi": "agent loop, tools, sessions, route/usage evidence",
-    "nemotron": "Nemotron 3.5 Super VL on Nebius \u2014 creative decisions, script, composition authoring, visual review",
+    "nemotron": "Nemotron 3.5 Super VL on Nebius — creative decisions, script, composition authoring, visual review",
     "media_tooling": "narration (eleven_v4 via media-tts-frames), assembly, delivery checks",
-    "ttv": "Required integration; no generated video has been executed or imported in this project",
-    "hyperframes": "HTML composition with basic entrance tweens and local render"
+    "ttv": "Generated tidepool footage (MiniMax H3, 5 s 1080p, clip f9ad56a4) mounted as a designed layer at assets/tidepool.mp4, visible 38.64-43.81 s; recorded in analysis/delivery-evidence.json and analysis/media-budget.json (op-3)",
+    "hyperframes": "HTML composition with cue-timed reveals, explanatory motion graphics, explanatory motion review and local render"
   },
   "narration": {
     "tool": "media-tts-frames",
     "model": "eleven_v4",
     "voice": "ELEVENLABS_VOICE_ID_EN (environment)",
-    "total_duration_s": 96.24,
-    "frames": 7,
-    "note": "Pilot narration was cached on second run (no new ElevenLabs charge)."
+    "total_duration_s": 148.84,
+    "frames": 9,
+    "note": "Re-voiced with --tail 0.3 --last-tail 1.0 to stay under the 150 s cap."
   },
   "media_budget_usd": {
     "authorized_total": 100,
     "known_media_charges": 0,
     "reserved_media_quotes": 5,
-    "status": "Narration reserved and executed (pilot cached, no new charge). TTV footage reserved pending credible per-clip ceiling."
+    "status": "Narration executed (pilot cached, no new charge). TTV tidepool clip executed and imported; actual USD unknown until provider billing is reported."
   },
   "inference": "Tracked separately in .pi/evidence/runtime.jsonl; cost estimates are not invoices.",
   "review": {
     "mode": "auto",
     "passes": 2,
-    "evidence": "edit/hyperframes/self-demo/review.md, snapshots/, analysis/review-frames/",
-    "correction": "Mojibake (middle dot, en dash, em dash) in hook kicker, input label, and claim credits replaced with plain ASCII hyphens; re-snapshots confirmed clean rendering.",
-    "status": "incomplete"
+    "evidence": "edit/hyperframes/film-v3/REVIEW.md, analysis/film-v3/frames2/, analysis/delivery-evidence.json",
+    "correction": "Layout overflow and near-static holds fixed; fixes verified on the encoded artifact before the delivery gate.",
+    "status": "complete"
   },
-  "self_authorship_claim": "Prototype script and HTML composition were produced in the Pi/Nemotron workflow. The required mixed-media result remains in development.",
+  "self_authorship_claim": "The script, HTML composition, narration timing, explanatory motion, review and encode were produced through the Pi/Nemotron workflow in this workspace. Credentials, signed URLs, private session transcripts and hidden reasoning are kept out of public materials.",
   "delivery": {
-    "final_mp4": "renders/submission-demo.mp4",
+    "final_mp4": "renders/submission-demo-v3.mp4",
     "preview": "submission/preview.html",
-    "editable_source": "edit/hyperframes/self-demo/"
+    "editable_source": "edit/hyperframes/film-v3/",
+    "delivery_check": "scripts/check-delivery.py passes all gates on the final artifact",
+    "artifact_sha256": "d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5"
   },
   "publication": "Awaits user authorization before repository push, YouTube upload, or Devpost submission.",
-  "validation_status": "incomplete",
+  "validation_status": "complete",
   "required_work": [
     "TTV-generated footage present in encode with receipts",
     "explanatory motion graphics",

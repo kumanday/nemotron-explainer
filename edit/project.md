@@ -219,3 +219,57 @@ blocker/major finding.
   review, fix (≤2 rounds).
 - analysis/delivery-evidence.json for v3; run python3 scripts/check-delivery.py.
 - Update STATUS.md, submission/ for v3. Publication awaits user authorization.
+
+## Session 2026-10-30 (v3 complete)
+
+### Strategy
+Complete film v3 per RECOVER.md, storyboards/v3/DIRECTION.md and the hybrid-explainer
+skill. Build all 9 scenes in edit/hyperframes/film-v3/, generate narration with
+media-tts-frames, place reveals on CUE markers via scripts/cues.py, render locally
+with HyperFrames 0.8.142, review blind, fix layout/temporal findings, and gate on
+scripts/check-delivery.py.
+
+### Decisions
+- Final artifact: renders/submission-demo-v3.mp4, 1920x1080, 30 fps, H.264/AAC,
+  148.87 s (under 150 s cap), SHA-256 d18eb5c715657e02702b1361188a521269a0b66d3a925511cd85a94b666836f5.
+- Re-voiced SCRIPT.md with media-tts-frames --tail 0.3 --last-tail 1.0 (total
+  148.84 s) to stay under the duration cap instead of trimming the script.
+- Generated tidepool footage (MiniMax H3, 5 s 1080p, clip f9ad56a4) mounted as a
+  designed layer at assets/tidepool.mp4, visible 38.64-43.81 s; recorded in
+  analysis/delivery-evidence.json and analysis/media-budget.json (op-3).
+- Explanatory motion: 2 sequences (loop ring build 16.14-31.56 s, look/filmstrip
+  60.64-89.74 s), each with 3 reviewed frames in analysis/film-v3/frames2/ and
+  a quote-anchored explanation in edit/hyperframes/film-v3/REVIEW.md.
+- Temporal holds fixed: stack scene ring strokeDashoffset pulse + backdrop opacity
+  pulse; fix scene diffpanel breath starts after its appear tween (no overlapping
+  GSAP tweens); look scene #player yoyo scale pulse.
+- Layout fixed: board flex rewrite (820px name column, no overflow:hidden),
+  chips/srcline repositioned inside the viewport, list height:auto so the drift
+  has slack, brief kicker/line-height/margin, loop+stack nodes at 104px,
+  result #lower height:90px bottom:6px, ask claim shortened.
+- review-mode: auto recorded in the composition BRIEF/DECISIONS; blind review
+  run before self-review on every round.
+
+### Reasoning log
+- Root translation drifts insufficient at the checker's 2fps/160x90 gray
+  sampling; switched to content-level property tweens (ring strokeDashoffset,
+  backdrop opacity, panel breath, player scale pulse) that register pixel change.
+- GSAP repeat:-1 (infinite) is an error; used finite yoyo/repeat. SVG attr
+  strokeDashoffset needs AttrPlugin (not registered); used plain CSS
+  strokeDashoffset tween. Sub-composition onUpdate style manipulation is not
+  captured by the encoder; only property tweens render.
+- Render caching produced stale SHAs; rendered to fresh /tmp paths, verified the
+  SHA, then copied the verified render to renders/submission-demo-v3.mp4.
+- User-reported quirks at 0:24-0:30 (loop), 1:21 (look), 2:10 (stack)
+  investigated and resolved via the temporal-motion fixes above.
+
+### Outstanding items
+- scripts/check-delivery.py PASSES all gates (temporal_coverage, cue_sync,
+  layout_clean, artifact_bound_evidence, explanatory_motion_review,
+  generated_clip_1) on renders/submission-demo-v3.mp4.
+- delivery-evidence.json artifact_sha256 and motion_review.artifact_sha256 synced
+  to d18eb5c7.
+- Update STATUS.md and submission/ (provenance, verification, attribution,
+  devpost description) for v3.
+- Publication (repository push, YouTube upload, Devpost submission) awaits the
+  user's explicit authorization.
